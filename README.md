@@ -23,7 +23,9 @@ directly or serve from anywhere:
 
 - `index.html` — the GetMeBrands landing/request page
 - `portfolio.html` — a separate, self-contained personal portfolio page (own
-  fonts/colors, linked from GetMeBrands' nav and footer)
+  fonts/colors). Intentionally **not linked** anywhere on the GetMeBrands
+  site and marked `noindex, nofollow` — reachable only by whoever has the
+  direct URL (`getmebrands.com/portfolio.html`)
 - `assets/css/style.css` — styling for `index.html`
 - `assets/js/app.js` — the pricing "I'm interested" buttons (mailto +
   clipboard fallback, since mailto alone silently does nothing without a
