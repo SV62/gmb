@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GetMeBrands — Contact-ready brand lists, by niche</title>
+<meta name="description" content="Find brands that are actively running ads, brands with a real social presence, and small/emerging brands — filter by niche, build a list, export to CSV or Bento.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="sample-banner">You're viewing <b>sample data</b> — this demo runs on 44 fictional brands so you can try the filters and exports. <a href="#contact">Get in touch</a> to connect a live data source.</div>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="logo"><span class="mark">GB</span> GetMeBrands</a>
+    <ul class="nav-links">
+      <li><a href="#lists">List types</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#explorer">Explorer</a></li>
+      <li><a href="#explorer" class="nav-cta">Build a list</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Brand discovery for outreach teams</span>
+    <h1>Find brands worth <span class="accent">contacting</span> — filtered by niche, ready to reach out.</h1>
+    <p class="lede">GetMeBrands surfaces brands actively running ads, brands with a real social following, and small/emerging brands in your niche — then lets you build a list and export it straight to CSV or Bento.</p>
+    <div class="hero-actions">
+      <a href="#explorer" class="btn btn-primary">Explore brands</a>
+      <a href="#how" class="btn btn-ghost">How it works</a>
+    </div>
+    <div class="hero-stats">
+      <div><b id="statTotal">—</b><span>brands in this demo dataset</span></div>
+      <div><b id="statNiches">—</b><span>niches covered</span></div>
+      <div><b id="statAds">—</b><span>currently running ads</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="lists">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Three ways to slice a niche</span>
+      <h2>Every list starts with a question you already have.</h2>
+      <p>Pick the angle that matches your outreach motion, then narrow by niche, size, and platform.</p>
+    </div>
+    <div class="card-grid">
+      <div class="list-card">
+        <div class="icon">▲</div>
+        <h3>Actively advertising</h3>
+        <p>Brands currently spending on Meta, Google or TikTok ads right now — a signal they have budget, are testing acquisition, and are worth a media-kit pitch or partnership offer.</p>
+      </div>
+      <div class="list-card">
+        <div class="icon">◆</div>
+        <h3>Social-first brands</h3>
+        <p>Brands with a real, active audience on Instagram or TikTok — good targets for influencer collabs, affiliate offers, or organic-first partnership pitches.</p>
+      </div>
+      <div class="list-card">
+        <div class="icon">●</div>
+        <h3>Small &amp; emerging</h3>
+        <p>Early-stage brands without heavy ad spend or a big following yet — lower competition for your outreach, and often the fastest to say yes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>From filter to inbox in three steps.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h4>Filter by niche &amp; signal</h4>
+        <p>Search, pick a niche, and toggle ad status, social presence, or brand size to narrow the pool.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h4>Build your list</h4>
+        <p>Check off brands as you go — your list is saved in the browser so you can keep refining filters without losing it.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h4>Export &amp; upload</h4>
+        <p>Download a plain CSV, or a Bento-ready CSV with tags and custom fields already mapped for import.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="explorer">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Brand explorer</span>
+      <h2>Filter, select, export.</h2>
+      <p>Quick jump into a niche:
+        <a href="#explorer" data-niche-quick="Beauty &amp; Skincare">Beauty</a> ·
+        <a href="#explorer" data-niche-quick="Fashion &amp; Apparel">Fashion</a> ·
+        <a href="#explorer" data-niche-quick="Fitness &amp; Wellness">Fitness</a> ·
+        <a href="#explorer" data-niche-quick="Pet Care">Pet Care</a> ·
+        <a href="#explorer" data-niche-quick="Food &amp; Beverage">Food</a>
+      </p>
+    </div>
+
+    <div class="explorer">
+      <div class="explorer-toolbar">
+        <input type="search" id="search" placeholder="Search brand, niche or tag…" />
+        <select id="nicheSelect">
+          <option value="all">All niches</option>
+        </select>
+        <div class="pill-toggle" id="adPills">
+          <button type="button" data-value="all" class="active">All ad status</button>
+          <button type="button" data-value="Running">Running ads</button>
+          <button type="button" data-value="Not running">No active ads</button>
+        </div>
+        <div class="pill-toggle" id="socialPills">
+          <button type="button" data-value="all" class="active">Any social</button>
+          <button type="button" data-value="yes">Has social presence</button>
+        </div>
+        <div class="pill-toggle" id="sizePills">
+          <button type="button" data-value="all" class="active">Any size</button>
+          <button type="button" data-value="Small">Small</button>
+          <button type="button" data-value="Medium">Medium</button>
+        </div>
+      </div>
+      <div class="result-count" id="resultCount"></div>
+      <div class="explorer-body">
+        <div class="brand-list" id="brandList"></div>
+        <div class="list-builder">
+          <h3>Your list</h3>
+          <div class="count" id="selectedCount">0 brands in this list</div>
+          <input type="text" class="niche-select" id="listNameInput" placeholder="List name (e.g. beauty-ad-spenders)" value="my-brand-list">
+          <div class="selected-scroll" id="selectedScroll"></div>
+          <button type="button" class="btn btn-primary" id="exportCsv" disabled>Export CSV</button>
+          <button type="button" class="btn btn-ghost" id="exportBento" disabled>Export for Bento</button>
+          <button type="button" class="btn btn-ghost" id="clearList" disabled>Clear list</button>
+          <p class="helper-text">Bento export includes an <code>email</code>, <code>tags</code> and a few custom fields — map any extra columns to custom fields during Bento's CSV import step.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-band" id="contact">
+    <h2>Want this running on real, live brand data?</h2>
+    <p>This demo ships with 44 sample brands so you can try the filters and exports end to end. Connecting a live ad-library feed, social API, and your own vetted brand research turns this into a real prospecting tool.</p>
+    <a href="mailto:hello@getmebrands.com" class="btn btn-primary">hello@getmebrands.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <a href="#top" class="logo"><span class="mark">GB</span> GetMeBrands</a>
+    <span>© 2026 GetMeBrands. Demo dataset — all brand names, contacts and follower counts are fictional.</span>
+  </div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+<script>
+  document.getElementById("statTotal").textContent = window.BRANDS.length;
+  document.getElementById("statNiches").textContent = new Set(window.BRANDS.map(b => b.niche)).size;
+  document.getElementById("statAds").textContent = window.BRANDS.filter(b => b.adStatus === "Running").length;
+</script>
+</body>
+</html>
