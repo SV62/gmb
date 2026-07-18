@@ -25,11 +25,20 @@ directly or serve from anywhere:
 - `portfolio.html` — a separate, self-contained personal portfolio page (own
   fonts/colors, linked from GetMeBrands' nav and footer)
 - `assets/css/style.css` — styling for `index.html`
-- `assets/js/app.js` — the CSV upload/preview widget (upload section) and the
-  pricing "I'm interested" buttons (mailto + clipboard fallback, since mailto
-  alone silently does nothing without a default mail app configured)
+- `assets/js/app.js` — the pricing "I'm interested" buttons (mailto +
+  clipboard fallback, since mailto alone silently does nothing without a
+  default mail app configured)
 - `assets/img/og-image.png` — Open Graph / Twitter Card preview image
+- `robots.txt` / `sitemap.xml` — basic SEO/crawling config
 - `CNAME` — GitHub Pages custom domain config for `getmebrands.com`
+
+## SEO
+
+`index.html` carries Organization/Service/FAQPage JSON-LD structured data,
+Open Graph/Twitter Card tags, and a canonical URL. Getting indexed and
+ranking for competitive terms still takes time (weeks to months) and depends
+on backlinks and ongoing content — none of that is instant just from adding
+meta tags.
 
 ## Running locally
 

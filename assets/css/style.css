@@ -83,30 +83,19 @@ header.nav{position:sticky;top:0;z-index:100;background:rgba(248,248,251,.92);ba
 .sample-table td:first-child{font-weight:700}
 .sample-note{font-size:13px;color:var(--ink-soft);margin:16px 0 20px}
 
-/* Upload & enrich */
-.upload-layout{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
-.enrich-list{list-style:none;display:flex;flex-direction:column;gap:14px;padding-top:4px}
-.enrich-list li{position:relative;padding-left:26px;font-size:15px;color:var(--ink-soft)}
-.enrich-list li::before{content:"✓";position:absolute;left:0;top:0;color:var(--brand);font-weight:800}
-.upload-box{background:var(--paper-raised);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:22px}
-.dropzone{border:2px dashed var(--line);border-radius:12px;padding:44px 20px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s}
-.dropzone:hover,.dropzone.dragover{border-color:var(--brand);background:var(--brand-tint)}
-.dz-title{font-weight:700;font-size:15px;margin-bottom:6px}
-.dz-sub{font-size:13px;color:var(--ink-soft)}
-.upload-preview-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;font-size:13px;color:var(--ink-soft)}
-.preview-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin-bottom:16px}
-.preview-table{width:100%;border-collapse:collapse;font-size:13px}
-.preview-table th,.preview-table td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
-.preview-table th{background:var(--paper);font-weight:700}
-.preview-table tr:last-child td{border-bottom:none}
-.preview-table td.pending{color:var(--warn);font-style:italic}
-
 /* How it works */
 .steps{counter-reset:step;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .step{position:relative;padding-left:8px}
 .step .num{font-size:13px;font-weight:800;color:var(--brand);margin-bottom:10px}
 .step h4{font-size:16px;font-weight:800;margin-bottom:6px}
 .step p{font-size:14px;color:var(--ink-soft)}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:0;max-width:760px}
+.faq-item{padding:22px 0;border-bottom:1px solid var(--line)}
+.faq-item:first-child{padding-top:0}
+.faq-item h3{font-size:16px;font-weight:800;margin-bottom:8px}
+.faq-item p{font-size:14.5px;color:var(--ink-soft)}
 
 /* CTA band */
 .cta-band{background:var(--ink);color:#fff;border-radius:20px;padding:52px;text-align:center;margin:0 24px}
@@ -121,7 +110,6 @@ footer .foot-inner{display:flex;justify-content:space-between;align-items:center
 @media(max-width:900px){
   .card-grid{grid-template-columns:1fr}
   .pricing-grid-2{grid-template-columns:1fr}
-  .upload-layout{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .nav-links{display:none}
 }
