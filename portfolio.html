@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sheril — Creator Outreach Strategist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --ink: #1B1B18;
+    --body: #3D3D3A;
+    --muted: #8A8A86;
+    --border: #E2E0DB;
+    --surface: #F8F7F4;
+    --white: #FFFFFF;
+    --accent: #C5705D;
+    --accent-light: #F5EAE7;
+    --pro: #D9730D;
+    --pro-light: #FEF3E5;
+    --premium: #6940A5;
+    --premium-light: #F0EBF5;
+    --green: #2D8A4E;
+    --green-light: #E6F4EC;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--white);
+    color: var(--body);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 24px 60px;
+    text-align: center;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-divider hr {
+    border: none;
+    border-top: 1px solid var(--border);
+  }
+
+  /* ─── FEATURED SERVICE ─── */
+  .featured-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .featured-card {
+    background: var(--green-light);
+    border: 2px solid var(--green);
+    border-radius: 12px;
+    padding: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .featured-badge {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+
+  .featured-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+    line-height: 1.25;
+  }
+
+  .featured-price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--green);
+    margin-bottom: 20px;
+  }
+
+  .featured-price span {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .featured-description {
+    font-size: 0.95rem;
+    color: var(--body);
+    margin-bottom: 24px;
+    line-height: 1.75;
+    max-width: 680px;
+  }
+
+  .featured-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+  }
+
+  .featured-list li {
+    font-size: 0.92rem;
+    color: var(--body);
+    padding: 6px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    line-height: 1.6;
+  }
+
+  .featured-list li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .featured-note {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+    padding-top: 12px;
+    border-top: 1px solid rgba(45, 138, 78, 0.2);
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .featured-card-compact {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px;
+    position: relative;
+  }
+
+  .featured-card-compact.highlight {
+    background: var(--green-light);
+    border: 2px solid var(--green);
+  }
+
+  .featured-card-compact .featured-badge-sm {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+  }
+
+  .badge-green {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  .badge-purple {
+    background: var(--premium);
+    color: var(--white);
+  }
+
+  .featured-card-compact h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+
+  .featured-card-compact .featured-price {
+    font-size: 1.4rem;
+    margin-bottom: 16px;
+  }
+
+  .featured-card-compact .featured-price.purple {
+    color: var(--premium);
+  }
+
+  .featured-card-compact .featured-description {
+    font-size: 0.88rem;
+    margin-bottom: 20px;
+  }
+
+  .featured-card-compact .featured-list li {
+    font-size: 0.88rem;
+    padding: 5px 0;
+  }
+
+  .featured-card-compact .featured-note {
+    font-size: 0.8rem;
+    border-top-color: var(--border);
+  }
+
+  .featured-card-compact .featured-list li::before {
+    color: var(--green);
+  }
+
+  .featured-card-compact[style*="premium"] .featured-list li::before {
+    color: var(--premium);
+  }
+
+  @media (max-width: 700px) {
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* ─── SERVICES GRID ─── */
+  .services-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 24px 60px;
+  }
+
+  .services-section-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .services-section-header h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .services-section-header p {
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .service-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 36px;
+    position: relative;
+    transition: border-color 0.2s;
+  }
+
+  .service-card:hover {
+    border-color: var(--muted);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .card-tier {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  .tier-standard { background: var(--accent-light); color: var(--accent); }
+  .tier-pro { background: var(--pro-light); color: var(--pro); }
+  .tier-premium { background: var(--premium-light); color: var(--premium); }
+
+  .card-price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+  }
+
+  .service-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.35rem;
+    color: var(--ink);
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  .card-tagline {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin-bottom: 20px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  .card-deliverables {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card-deliverables li {
+    font-size: 0.88rem;
+    color: var(--body);
+    padding: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.55;
+  }
+
+  .card-deliverables li::before {
+    content: '—';
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .card-meta-item {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .card-meta-item strong {
+    color: var(--body);
+    font-weight: 600;
+  }
+
+  /* ─── ABOUT ─── */
+  .about-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .about-role {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .about-text {
+    font-size: 0.92rem;
+    color: var(--body);
+    line-height: 1.8;
+  }
+
+  .about-creds {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .cred {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cred-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+  }
+
+  .cred-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 640px) {
+    .hero { padding: 48px 20px 40px; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-stats { gap: 28px; }
+    .featured-card { padding: 28px; }
+    .featured-card h2 { font-size: 1.5rem; }
+    .service-card { padding: 24px; }
+    .about-card { padding: 28px; }
+    .about-creds { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-eyebrow">Creator Outreach Strategist</p>
+  <h1>I help creators stop pitching <em>blindly</em></h1>
+  <p class="hero-sub">Brand lists, pitch strategy, and negotiation support — built by Bento's in-house Customer Success Manager.</p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-number">1,000+</div>
+      <div class="stat-label">Creators helped</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">200+</div>
+      <div class="stat-label">Pitches written</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">2+</div>
+      <div class="stat-label">Years at Bento</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- MONTHLY SERVICES -->
+<section class="featured-section">
+  <div class="services-section-header" style="margin-bottom: 32px;">
+    <h2>Monthly brand lists</h2>
+    <p>Fresh brands with real creator/social proof, delivered to you every month — via <a href="index.html" style="color: var(--accent);">GetMeBrands</a>.</p>
+  </div>
+
+  <div class="featured-grid">
+
+    <!-- $30/mo -->
+    <div class="featured-card-compact highlight">
+      <span class="featured-badge-sm badge-green">Starter</span>
+      <h3>Monthly Brand List</h3>
+      <div class="featured-price">$30<span> / month</span></div>
+      <p class="featured-description">100 brands in your niche with real social proof and creator engagement — brand name, niche, location, and why each one is worth pitching.</p>
+      <ul class="featured-list">
+        <li>100 brands matched to your niche</li>
+        <li>Brand name, niche, location, and pitch rationale</li>
+        <li>Fresh list delivered monthly</li>
+      </ul>
+      <p class="featured-note">Delivered on the 1st of every month. Cancel anytime.</p>
+    </div>
+
+    <!-- $150/mo -->
+    <div class="featured-card-compact" style="background: var(--premium-light); border: 2px solid var(--premium);">
+      <span class="featured-badge-sm badge-purple">Pro</span>
+      <h3>Monthly Brand List Pro</h3>
+      <div class="featured-price purple">$150<span> / month</span></div>
+      <p class="featured-description">300 brands with real creator/social proof — plus the LinkedIn contact for each brand so you can follow up directly with the right person.</p>
+      <ul class="featured-list" style="--check-color: var(--premium);">
+        <li>300 brands matched to your niche</li>
+        <li>LinkedIn contact included for each brand — follow up directly with decision-makers</li>
+        <li>Brand name, niche, location, and pitch rationale</li>
+        <li>Fresh list delivered monthly</li>
+      </ul>
+      <p class="featured-note">Delivered on the 1st of every month. Cancel anytime.</p>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- OTHER SERVICES -->
+<section class="services-section">
+  <div class="services-section-header">
+    <h2>One-time services</h2>
+    <p>Go deeper with personalized strategy, templates, and hands-on support.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- $99 -->
+    <div class="service-card">
+      <div class="card-header">
+        <span class="card-tier tier-standard">Playbook</span>
+        <span class="card-price">$99</span>
+      </div>
+      <h3>Brand Pitch Playbook</h3>
+      <p class="card-tagline">Stop guessing who to pitch. Get a personalized outreach strategy from someone who's helped 1000+ creators land brand deals.</p>
+      <ul class="card-deliverables">
+        <li>50 brand prospects (Bento-upload ready)</li>
+        <li>1 custom pitch template written in your voice</li>
+        <li>Follow-up email template</li>
+        <li>3 subject line options</li>
+        <li>Personalized outreach strategy guide</li>
+      </ul>
+      <div class="card-meta">
+        <span class="card-meta-item"><strong>Turnaround:</strong> 5 days</span>
+        <span class="card-meta-item"><strong>Format:</strong> PDF + Google Doc</span>
+      </div>
+    </div>
+
+    <!-- $299 -->
+    <div class="service-card">
+      <div class="card-header">
+        <span class="card-tier tier-pro">Pro</span>
+        <span class="card-price">$299</span>
+      </div>
+      <h3>Brand Pitch Playbook Pro</h3>
+      <p class="card-tagline">Everything in the Playbook — scaled up with more brands, a follow-up sequence, and a 30-day action plan.</p>
+      <ul class="card-deliverables">
+        <li>100 brand prospects (Bento-upload ready)</li>
+        <li>1 custom pitch template written in your voice</li>
+        <li>Follow-up sequence — 3 templates</li>
+        <li>5 subject line options</li>
+        <li>Personalized outreach strategy guide</li>
+        <li>30-day outreach action plan</li>
+        <li>1 round of revisions on templates and subject lines</li>
+      </ul>
+      <div class="card-meta">
+        <span class="card-meta-item"><strong>Turnaround:</strong> 7 days</span>
+        <span class="card-meta-item"><strong>Format:</strong> PDF + Google Doc</span>
+      </div>
+    </div>
+
+    <!-- $499 -->
+    <div class="service-card">
+      <div class="card-header">
+        <span class="card-tier tier-premium">Premium</span>
+        <span class="card-price">$499</span>
+      </div>
+      <h3>Brand Pitch Playbook + Coach</h3>
+      <p class="card-tagline">Everything in the Pro — plus 15 days of async support and hands-on negotiation guidance to help you close your first deals.</p>
+      <ul class="card-deliverables">
+        <li>Everything in the Pro tier</li>
+        <li>5 brand negotiation assists — I'll guide you through live brand conversations</li>
+        <li>15 days of async support with 24 business hour response time</li>
+      </ul>
+      <div class="card-meta">
+        <span class="card-meta-item"><strong>Turnaround:</strong> 7 days + 15-day support window</span>
+        <span class="card-meta-item"><strong>Format:</strong> PDF + Google Doc</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ABOUT -->
+<section class="about-section">
+  <div class="about-card">
+    <div>
+      <h3 class="about-name">Sheril</h3>
+      <p class="about-role">Customer Success Manager · Bento</p>
+      <p class="about-text">I've spent over 2 years working directly with creators — helping more than 1000 of them review pitches, fix outreach campaigns, troubleshoot deliverability issues, and land their first (and fiftieth) brand deal. I've personally written over 200 pitches for creators on Bento, and I know the platform inside out — which features work, which settings to tweak, and how to get the most out of every campaign. This isn't advice from a course. It's pattern recognition from real results.</p>
+    </div>
+    <div class="about-creds">
+      <div class="cred">
+        <span class="cred-number">1,000+</span>
+        <span class="cred-label">Creators helped</span>
+      </div>
+      <div class="cred">
+        <span class="cred-number">200+</span>
+        <span class="cred-label">Pitches written</span>
+      </div>
+      <div class="cred">
+        <span class="cred-number">2+ yrs</span>
+        <span class="cred-label">At Bento</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2026 Sheril · Listed on Bento Marketplace · <a href="index.html">GetMeBrands</a>
+</footer>
+
+</body>
+</html>

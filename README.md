@@ -1,50 +1,34 @@
 # GetMeBrands
 
-A brand-discovery tool for outreach teams: filter brands by niche and signal —
-**actively running ads**, **social-first**, or **small/emerging** — build a
-list, then export it as a plain CSV or a Bento-ready CSV.
+A request-based service for creators: find brands with real social proof —
+brands already engaging with creators, and brands whose own site shows
+they're set up for it. Tell us your niche, we send back a human-verified
+list: brand name, niche, location, why it's worth pitching, and a LinkedIn
+contact.
 
 **Live site (once DNS is configured):** [getmebrands.com](https://getmebrands.com)
 
-## Status: demo dataset
+## Status
 
-This is a v1 working prototype. The brand explorer runs on **`assets/js/data.js`**,
-a hand-written set of ~44 fictional sample brands across 8 niches. Every name,
-contact, website and follower count in that file is made up — it exists so you
-can try the full filter → select → export flow end to end before wiring up a
-real data source.
-
-To go live, replace `assets/js/data.js` with brands sourced from wherever you
-want (a scraped/licensed ad-library feed, social APIs, manual research, a
-spreadsheet export) — the app only expects an array of objects shaped like:
-
-```js
-{
-  name: "Brand Name",
-  niche: "Beauty & Skincare",
-  size: "Small" | "Medium",
-  adStatus: "Running" | "Not running",
-  adPlatforms: ["Meta", "Google", "TikTok"],
-  hasSocial: true,
-  instagram: 8400,
-  tiktok: 21000,
-  website: "example.com",
-  contactEmail: "hello@example.com",
-  contactName: "Jane D.",
-  location: "Austin, TX",
-  tags: ["clean-beauty", "vegan"],
-}
-```
+This is a marketing/request site, not a live database tool. The "Sample
+list" section on the page is a small hardcoded prototype (5 rows) showing
+what a real request comes back looking like — there's no filtering or
+export-yourself flow. Fulfillment is manual for now: a request comes in via
+the pricing CTAs or the contact email, and a human puts the list together.
 
 ## What's here
 
 No build step, no framework, no dependencies — a static site you can open
 directly or serve from anywhere:
 
-- `index.html` — landing page + the brand explorer UI
-- `assets/css/style.css` — all styling
-- `assets/js/data.js` — the sample brand dataset (swap this for real data)
-- `assets/js/app.js` — filtering, list-building (saved to `localStorage`), and CSV/Bento export
+- `index.html` — the GetMeBrands landing/request page
+- `portfolio.html` — a separate, self-contained personal portfolio page (own
+  fonts/colors, linked from GetMeBrands' nav and footer)
+- `assets/css/style.css` — styling for `index.html`
+- `assets/js/app.js` — the CSV upload/preview widget (upload section) and the
+  pricing "I'm interested" buttons (mailto + clipboard fallback, since mailto
+  alone silently does nothing without a default mail app configured)
+- `assets/img/og-image.png` — Open Graph / Twitter Card preview image
 - `CNAME` — GitHub Pages custom domain config for `getmebrands.com`
 
 ## Running locally
@@ -59,12 +43,6 @@ or serve it so you're on a real URL instead of `file://`:
 python3 -m http.server 8000
 # then visit http://localhost:8000
 ```
-
-## Exporting to Bento
-
-The "Export for Bento" button downloads a minimal CSV with just three
-columns: `email` (Bento's only auto-matched field), `brand_name`, and
-`website`.
 
 ## Deployment
 
