@@ -62,11 +62,9 @@ python3 -m http.server 8000
 
 ## Exporting to Bento
 
-The "Export for Bento" button downloads a CSV with an `email` column (Bento's
-only auto-matched field) plus `first_name`, a semicolon-separated `tags`
-column, and a few custom fields (`brand_name`, `niche`, `size`, `ad_status`,
-`instagram_followers`, `tiktok_followers`, `website`). During Bento's CSV
-import, map any of those extra columns to custom fields as needed.
+The "Export for Bento" button downloads a minimal CSV with just three
+columns: `email` (Bento's only auto-matched field), `brand_name`, and
+`website`.
 
 ## Deployment
 

@@ -5,13 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GetMeBrands — Contact-ready brand lists, by niche</title>
 <meta name="description" content="Find brands that are actively running ads, brands with a real social presence, and small/emerging brands — filter by niche, build a list, export to CSV or Bento.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://getmebrands.com/">
+<meta property="og:title" content="GetMeBrands — Contact-ready brand lists, by niche">
+<meta property="og:description" content="Find brands actively running ads, brands with a real social presence, and small/emerging brands — filter by niche, build a list, export to CSV or Bento.">
+<meta property="og:image" content="https://getmebrands.com/assets/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GetMeBrands — Contact-ready brand lists, by niche">
+<meta name="twitter:description" content="Find brands actively running ads, brands with a real social presence, and small/emerging brands — filter by niche, build a list, export to CSV or Bento.">
+<meta name="twitter:image" content="https://getmebrands.com/assets/img/og-image.png">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%234b3cf0'/%3E%3Cstop offset='1' stop-color='%238b7bff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='14' font-weight='800' fill='white' text-anchor='middle'%3EGB%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-
-<div class="sample-banner">You're viewing <b>sample data</b> — this demo runs on 44 fictional brands so you can try the filters and exports. <a href="#contact">Get in touch</a> to connect a live data source.</div>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -19,6 +32,7 @@
     <ul class="nav-links">
       <li><a href="#lists">List types</a></li>
       <li><a href="#how">How it works</a></li>
+      <li><a href="#upload">Upload a list</a></li>
       <li><a href="#explorer">Explorer</a></li>
       <li><a href="#explorer" class="nav-cta">Build a list</a></li>
     </ul>
@@ -33,11 +47,6 @@
     <div class="hero-actions">
       <a href="#explorer" class="btn btn-primary">Explore brands</a>
       <a href="#how" class="btn btn-ghost">How it works</a>
-    </div>
-    <div class="hero-stats">
-      <div><b id="statTotal">—</b><span>brands in this demo dataset</span></div>
-      <div><b id="statNiches">—</b><span>niches covered</span></div>
-      <div><b id="statAds">—</b><span>currently running ads</span></div>
     </div>
   </div>
 </section>
@@ -95,6 +104,43 @@
   </div>
 </section>
 
+<section class="section" id="upload">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Already have a list?</span>
+      <h2>Upload what you've got — we'll fill in the rest.</h2>
+      <p>Drop in a spreadsheet of brands you're already tracking. We take it from there and identify:</p>
+    </div>
+    <div class="upload-layout">
+      <ul class="enrich-list">
+        <li>Brand name, cleaned and standardized</li>
+        <li>Proper formatting, ready to import</li>
+        <li>Website</li>
+        <li>Instagram, and other social handles</li>
+        <li>Whether they're currently running ads, and where</li>
+        <li>Niche and rough brand size</li>
+      </ul>
+      <div class="upload-box">
+        <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-label="Upload a CSV of brands">
+          <input type="file" id="fileInput" accept=".csv" hidden />
+          <p class="dz-title">Drag a CSV here, or click to choose a file</p>
+          <p class="dz-sub">Previewed locally in your browser — nothing is sent until you email it to us.</p>
+        </div>
+        <div class="upload-preview" id="uploadPreview" hidden>
+          <div class="upload-preview-head">
+            <span id="uploadSummary"></span>
+            <button type="button" class="btn btn-ghost" id="uploadReset">Start over</button>
+          </div>
+          <div class="preview-table-wrap">
+            <table class="preview-table" id="previewTable"></table>
+          </div>
+          <a class="btn btn-primary" id="emailListBtn" href="#">Email this list to us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="explorer">
   <div class="wrap">
     <div class="section-head">
@@ -115,20 +161,20 @@
         <select id="nicheSelect">
           <option value="all">All niches</option>
         </select>
-        <div class="pill-toggle" id="adPills">
-          <button type="button" data-value="all" class="active">All ad status</button>
-          <button type="button" data-value="Running">Running ads</button>
-          <button type="button" data-value="Not running">No active ads</button>
-        </div>
-        <div class="pill-toggle" id="socialPills">
-          <button type="button" data-value="all" class="active">Any social</button>
-          <button type="button" data-value="yes">Has social presence</button>
-        </div>
-        <div class="pill-toggle" id="sizePills">
-          <button type="button" data-value="all" class="active">Any size</button>
-          <button type="button" data-value="Small">Small</button>
-          <button type="button" data-value="Medium">Medium</button>
-        </div>
+        <select id="adStatusSelect">
+          <option value="all">All ad status</option>
+          <option value="Running">Running ads</option>
+          <option value="Not running">No active ads</option>
+        </select>
+        <select id="socialSelect">
+          <option value="all">Any social</option>
+          <option value="yes">Has social presence</option>
+        </select>
+        <select id="sizeSelect">
+          <option value="all">Any size</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+        </select>
       </div>
       <div class="result-count" id="resultCount"></div>
       <div class="explorer-body">
@@ -141,7 +187,7 @@
           <button type="button" class="btn btn-primary" id="exportCsv" disabled>Export CSV</button>
           <button type="button" class="btn btn-ghost" id="exportBento" disabled>Export for Bento</button>
           <button type="button" class="btn btn-ghost" id="clearList" disabled>Clear list</button>
-          <p class="helper-text">Bento export includes an <code>email</code>, <code>tags</code> and a few custom fields — map any extra columns to custom fields during Bento's CSV import step.</p>
+          <p class="helper-text">Bento export includes just <code>email</code>, <code>brand_name</code> and <code>website</code> — ready to import as-is.</p>
         </div>
       </div>
     </div>
@@ -150,8 +196,8 @@
 
 <section class="section">
   <div class="cta-band" id="contact">
-    <h2>Want this running on real, live brand data?</h2>
-    <p>This demo ships with 44 sample brands so you can try the filters and exports end to end. Connecting a live ad-library feed, social API, and your own vetted brand research turns this into a real prospecting tool.</p>
+    <h2>Want a list built for your niche?</h2>
+    <p>Tell us the niche and the signal you care about — active advertisers, social-first brands, or small and emerging — and we'll put a contact-ready list together for you.</p>
     <a href="mailto:hello@getmebrands.com" class="btn btn-primary">hello@getmebrands.com</a>
   </div>
 </section>
@@ -159,16 +205,11 @@
 <footer>
   <div class="wrap foot-inner">
     <a href="#top" class="logo"><span class="mark">GB</span> GetMeBrands</a>
-    <span>© 2026 GetMeBrands. Demo dataset — all brand names, contacts and follower counts are fictional.</span>
+    <span>© 2026 GetMeBrands.</span>
   </div>
 </footer>
 
 <script src="assets/js/data.js"></script>
 <script src="assets/js/app.js"></script>
-<script>
-  document.getElementById("statTotal").textContent = window.BRANDS.length;
-  document.getElementById("statNiches").textContent = new Set(window.BRANDS.map(b => b.niche)).size;
-  document.getElementById("statAds").textContent = window.BRANDS.filter(b => b.adStatus === "Running").length;
-</script>
 </body>
 </html>

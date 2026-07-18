@@ -14,9 +14,9 @@
   const els = {
     search: document.getElementById("search"),
     nicheSelect: document.getElementById("nicheSelect"),
-    adPills: document.getElementById("adPills"),
-    socialPills: document.getElementById("socialPills"),
-    sizePills: document.getElementById("sizePills"),
+    adStatusSelect: document.getElementById("adStatusSelect"),
+    socialSelect: document.getElementById("socialSelect"),
+    sizeSelect: document.getElementById("sizeSelect"),
     brandList: document.getElementById("brandList"),
     resultCount: document.getElementById("resultCount"),
     selectedScroll: document.getElementById("selectedScroll"),
@@ -92,8 +92,7 @@
               <div class="brand-name">${escapeHtml(b.name)}</div>
               <div class="brand-meta">${escapeHtml(b.niche)} · ${escapeHtml(b.location)}</div>
             </div>
-            ${adTag}
-            ${socialTag}${sizeTag}
+            <div class="brand-tags">${adTag}${socialTag}${sizeTag}</div>
             <div class="brand-social">IG ${formatFollowers(b.instagram)}${b.tiktok ? " · TT " + formatFollowers(b.tiktok) : ""}</div>
           </label>`;
         })
@@ -180,26 +179,11 @@
   }
 
   function exportBentoCsv() {
-    // Bento's subscriber importer maps arbitrary CSV columns to custom fields
-    // during import, so we ship a generic, clearly-labelled column set.
-    // "email" is required by Bento and is the only column it auto-matches.
+    // "email" is required by Bento and is the only column it auto-matches;
+    // brand_name and website are the only extra fields this export needs.
     const items = selectedBrands();
-    const header = ["email", "first_name", "tags", "brand_name", "niche", "size", "ad_status", "instagram_followers", "tiktok_followers", "website"];
-    const rows = items.map((b) => [
-      b.contactEmail,
-      b.contactName.split(" ")[0],
-      [b.niche, b.size, b.adStatus === "Running" ? "ads-running" : "no-ads", b.hasSocial ? "social-active" : null, ...b.tags]
-        .filter(Boolean)
-        .map(slugify)
-        .join(";"),
-      b.name,
-      b.niche,
-      b.size,
-      b.adStatus,
-      b.instagram,
-      b.tiktok,
-      b.website,
-    ]);
+    const header = ["email", "brand_name", "website"];
+    const rows = items.map((b) => [b.contactEmail, b.name, b.website]);
     downloadCsv(`${slugify(els.listNameInput.value)}-bento.csv`, [header, ...rows]);
   }
 
@@ -212,25 +196,16 @@
     state.niche = e.target.value;
     render();
   });
-  els.adPills.addEventListener("click", (e) => {
-    const btn = e.target.closest("button");
-    if (!btn) return;
-    state.adStatus = btn.dataset.value;
-    [...els.adPills.children].forEach((c) => c.classList.toggle("active", c === btn));
+  els.adStatusSelect.addEventListener("change", (e) => {
+    state.adStatus = e.target.value;
     render();
   });
-  els.socialPills.addEventListener("click", (e) => {
-    const btn = e.target.closest("button");
-    if (!btn) return;
-    state.social = btn.dataset.value;
-    [...els.socialPills.children].forEach((c) => c.classList.toggle("active", c === btn));
+  els.socialSelect.addEventListener("change", (e) => {
+    state.social = e.target.value;
     render();
   });
-  els.sizePills.addEventListener("click", (e) => {
-    const btn = e.target.closest("button");
-    if (!btn) return;
-    state.size = btn.dataset.value;
-    [...els.sizePills.children].forEach((c) => c.classList.toggle("active", c === btn));
+  els.sizeSelect.addEventListener("change", (e) => {
+    state.size = e.target.value;
     render();
   });
   els.brandList.addEventListener("change", (e) => {
@@ -266,4 +241,125 @@
 
   populateNiches();
   render();
+})();
+
+// Upload & enrich preview
+(function () {
+  const dropzone = document.getElementById("dropzone");
+  const fileInput = document.getElementById("fileInput");
+  const uploadPreview = document.getElementById("uploadPreview");
+  const uploadSummary = document.getElementById("uploadSummary");
+  const previewTable = document.getElementById("previewTable");
+  const uploadReset = document.getElementById("uploadReset");
+  const emailListBtn = document.getElementById("emailListBtn");
+  if (!dropzone) return;
+
+  const ENRICH_COLUMNS = ["Website", "Instagram", "Ad Status"];
+  const PREVIEW_ROWS = 8;
+
+  function splitCsvLine(line) {
+    const cells = [];
+    let cur = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (inQuotes) {
+        if (ch === '"' && line[i + 1] === '"') {
+          cur += '"';
+          i++;
+        } else if (ch === '"') {
+          inQuotes = false;
+        } else {
+          cur += ch;
+        }
+      } else if (ch === '"') {
+        inQuotes = true;
+      } else if (ch === ",") {
+        cells.push(cur);
+        cur = "";
+      } else {
+        cur += ch;
+      }
+    }
+    cells.push(cur);
+    return cells.map((c) => c.trim());
+  }
+
+  function parseCsv(text) {
+    return text
+      .split(/\r\n|\n/)
+      .filter((line) => line.trim().length)
+      .map(splitCsvLine);
+  }
+
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function renderPreview(rows, filename) {
+    const header = rows[0];
+    const dataRows = rows.slice(1, 1 + PREVIEW_ROWS);
+    const totalRows = rows.length - 1;
+
+    let html = "<thead><tr>";
+    header.forEach((h) => (html += `<th>${escapeHtml(h)}</th>`));
+    ENRICH_COLUMNS.forEach((c) => (html += `<th>${escapeHtml(c)}</th>`));
+    html += "</tr></thead><tbody>";
+    dataRows.forEach((row) => {
+      html += "<tr>";
+      header.forEach((_, i) => (html += `<td>${escapeHtml(row[i] || "")}</td>`));
+      ENRICH_COLUMNS.forEach(() => (html += `<td class="pending">Pending</td>`));
+      html += "</tr>";
+    });
+    html += "</tbody>";
+    previewTable.innerHTML = html;
+
+    uploadSummary.textContent = `${filename} — ${totalRows} brand${totalRows === 1 ? "" : "s"} (showing first ${Math.min(totalRows, PREVIEW_ROWS)})`;
+    dropzone.hidden = true;
+    uploadPreview.hidden = false;
+
+    const subject = encodeURIComponent(`Enrich my brand list — ${filename}`);
+    const body = encodeURIComponent(`Hi GetMeBrands,\n\nI'd like this list enriched (${totalRows} brands). Attaching the file separately.\n\nThanks!`);
+    emailListBtn.href = `mailto:hello@getmebrands.com?subject=${subject}&body=${body}`;
+  }
+
+  function handleFile(file) {
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const rows = parseCsv(String(reader.result));
+      if (rows.length < 1) return;
+      renderPreview(rows, file.name);
+    };
+    reader.readAsText(file);
+  }
+
+  dropzone.addEventListener("click", () => fileInput.click());
+  dropzone.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      fileInput.click();
+    }
+  });
+  fileInput.addEventListener("change", (e) => handleFile(e.target.files[0]));
+
+  ["dragenter", "dragover"].forEach((evt) =>
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      dropzone.classList.add("dragover");
+    })
+  );
+  ["dragleave", "drop"].forEach((evt) =>
+    dropzone.addEventListener(evt, (e) => {
+      e.preventDefault();
+      dropzone.classList.remove("dragover");
+    })
+  );
+  dropzone.addEventListener("drop", (e) => handleFile(e.dataTransfer.files[0]));
+
+  uploadReset.addEventListener("click", () => {
+    uploadPreview.hidden = true;
+    dropzone.hidden = false;
+    fileInput.value = "";
+  });
 })();
