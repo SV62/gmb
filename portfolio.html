@@ -271,6 +271,81 @@
     opacity: 0.9;
   }
 
+  /* ─── SAMPLE LIST TOGGLE ─── */
+  .sample-toggle {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .sample-toggle summary {
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sample-toggle summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .sample-toggle summary::before {
+    content: '▸';
+    font-size: 0.7rem;
+    transition: transform 0.15s;
+  }
+
+  .sample-toggle[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .sample-mini-table-wrap {
+    margin-top: 14px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--white);
+  }
+
+  .sample-mini-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.76rem;
+    min-width: 360px;
+  }
+
+  .sample-mini-table th,
+  .sample-mini-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .sample-mini-table th {
+    background: var(--surface);
+    font-weight: 700;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  .sample-mini-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .sample-mini-note {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 8px;
+  }
+
   @media (max-width: 700px) {
     .featured-grid {
       grid-template-columns: 1fr;
@@ -600,6 +675,34 @@
         <li>Brand name, niche, location, and pitch rationale</li>
         <li>One-time delivery</li>
       </ul>
+      <details class="sample-toggle">
+        <summary>See a sample list</summary>
+        <div class="sample-mini-table-wrap">
+          <table class="sample-mini-table">
+            <thead>
+              <tr><th>Brand</th><th>Website</th><th>Why it's a fit</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Lumen Skin Co.</td>
+                <td>lumenskin.co</td>
+                <td>Active UGC/ambassador program — regularly reposts creator content.</td>
+              </tr>
+              <tr>
+                <td>Basecamp Outerwear</td>
+                <td>basecampouterwear.com</td>
+                <td>Dedicated Ambassadors page with an open application form.</td>
+              </tr>
+              <tr>
+                <td>Loyal Trail Pet Co.</td>
+                <td>loyaltrailpet.com</td>
+                <td>Recently launched a creator program; still building its roster.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sample-mini-note">Placeholder brands for illustration.</p>
+      </details>
       <div class="marketplace-link">
         <a href="https://www.onbento.com/marketplace" target="_blank" rel="noopener">View on Bento Marketplace ↗</a>
       </div>
@@ -610,13 +713,45 @@
       <span class="featured-badge-sm badge-purple">Pro</span>
       <h3>Brand List Pro</h3>
       <div class="featured-price purple">$150</div>
-      <p class="featured-description">300 brands with real creator/social proof — plus the LinkedIn contact for each brand so you can follow up directly with the right person.</p>
+      <p class="featured-description">300 brands with real creator/social proof — plus a live ad link and the LinkedIn contact for each brand so you can follow up directly with the right person.</p>
       <ul class="featured-list" style="--check-color: var(--premium);">
         <li>300 brands matched to your niche</li>
+        <li>Live ad link for each brand — proof they're actively running ads</li>
         <li>LinkedIn contact included for each brand — follow up directly with decision-makers</li>
         <li>Brand name, niche, location, and pitch rationale</li>
         <li>One-time delivery</li>
       </ul>
+      <details class="sample-toggle">
+        <summary>See a sample list</summary>
+        <div class="sample-mini-table-wrap">
+          <table class="sample-mini-table">
+            <thead>
+              <tr><th>Brand</th><th>Website</th><th>Why it's a fit</th><th>LinkedIn contact</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Ironclad Supplements</td>
+                <td>ironcladsupp.com</td>
+                <td>Active affiliate program; Google ad live 5+ weeks — ad link included in your list.</td>
+                <td>Marcus T. — Influencer Marketing</td>
+              </tr>
+              <tr>
+                <td>Hearth &amp; Hollow</td>
+                <td>hearthandhollow.com</td>
+                <td>Small in-house program, early mover opportunity; Meta ad currently running — ad link included in your list.</td>
+                <td>Fiona W. — Founder</td>
+              </tr>
+              <tr>
+                <td>Basecamp Outerwear</td>
+                <td>basecampouterwear.com</td>
+                <td>Dedicated Ambassadors page; TikTok ad currently running — ad link included in your list.</td>
+                <td>Greg S. — Brand Marketing</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sample-mini-note">Placeholder brands for illustration.</p>
+      </details>
       <div class="marketplace-link">
         <a href="https://www.onbento.com/marketplace" target="_blank" rel="noopener">View on Bento Marketplace ↗</a>
       </div>
