@@ -532,11 +532,32 @@
     gap: 24px;
   }
 
+  .about-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .about-photo {
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border);
+    flex-shrink: 0;
+  }
+
   .about-name {
     font-family: 'DM Serif Display', serif;
     font-size: 1.5rem;
     color: var(--ink);
     margin-bottom: 4px;
+  }
+
+  .about-header .about-name,
+  .about-header .about-role {
+    margin-bottom: 0;
   }
 
   .about-role {
@@ -870,8 +891,13 @@
 <section class="about-section">
   <div class="about-card">
     <div>
-      <h3 class="about-name">Sheril</h3>
-      <p class="about-role">Customer Success Manager · Bento</p>
+      <div class="about-header">
+        <img src="assets/img/sheril.jpg" alt="Sheril" class="about-photo" onerror="this.style.display='none'">
+        <div>
+          <h3 class="about-name">Sheril</h3>
+          <p class="about-role">Customer Success Manager · Bento</p>
+        </div>
+      </div>
       <p class="about-text">2+ years working directly with creators inside Bento. Here's what that actually looks like:</p>
       <div class="about-highlights">
         <div>
