@@ -358,6 +358,30 @@
     margin-top: 8px;
   }
 
+  .sample-downloads {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+
+  .btn-mini {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--ink);
+    cursor: pointer;
+  }
+
+  .btn-mini:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
   @media (max-width: 700px) {
     .featured-grid {
       grid-template-columns: 1fr;
@@ -669,31 +693,38 @@
         <div class="sample-mini-table-wrap">
           <table class="sample-mini-table">
             <thead>
-              <tr><th>Brand</th><th>Niche</th><th>Location</th><th>Why it's a fit</th></tr>
+              <tr><th>Brand</th><th>Niche</th><th>Location</th><th>Website</th><th>Why it's a fit</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td>Lumen Skin Co.</td>
                 <td>Beauty</td>
                 <td>Austin, TX</td>
+                <td>lumenskin.co</td>
                 <td>Runs a monthly UGC gallery and reposts creator content.</td>
               </tr>
               <tr>
                 <td>Basecamp Outerwear</td>
                 <td>Fashion</td>
                 <td>Seattle, WA</td>
+                <td>basecampouterwear.com</td>
                 <td>Has an active Ambassadors page with an application form.</td>
               </tr>
               <tr>
                 <td>Loyal Trail Pet Co.</td>
                 <td>Pet Care</td>
                 <td>Fort Collins, CO</td>
+                <td>loyaltrailpet.com</td>
                 <td>Recently launched a creator program; still building its roster.</td>
               </tr>
             </tbody>
           </table>
         </div>
         <p class="sample-mini-note">Placeholder brands for illustration — a real list is matched to your niche.</p>
+        <div class="sample-downloads">
+          <button type="button" class="btn-mini" data-download="pitching" data-tier="starter">Download for pitching</button>
+          <button type="button" class="btn-mini" data-download="bento" data-tier="starter">Download for pitching on Bento</button>
+        </div>
       </details>
     </div>
 
@@ -715,13 +746,14 @@
         <div class="sample-mini-table-wrap">
           <table class="sample-mini-table">
             <thead>
-              <tr><th>Brand</th><th>Niche</th><th>Location</th><th>Why it's a fit</th><th>LinkedIn contact</th></tr>
+              <tr><th>Brand</th><th>Niche</th><th>Location</th><th>Website</th><th>Why it's a fit</th><th>LinkedIn contact</th></tr>
             </thead>
             <tbody>
               <tr>
                 <td>Ironclad Supplements</td>
                 <td>Fitness</td>
                 <td>Salt Lake City, UT</td>
+                <td>ironcladsupp.com</td>
                 <td>Tags 10+ creators a week and runs a visible affiliate program.</td>
                 <td>Marcus T. — Influencer Marketing</td>
               </tr>
@@ -729,6 +761,7 @@
                 <td>Hearth &amp; Hollow</td>
                 <td>Home &amp; Living</td>
                 <td>Charleston, SC</td>
+                <td>hearthandhollow.com</td>
                 <td>Small team, no in-house creator program yet — early mover advantage.</td>
                 <td>Fiona W. — Founder</td>
               </tr>
@@ -736,6 +769,7 @@
                 <td>Basecamp Outerwear</td>
                 <td>Fashion</td>
                 <td>Seattle, WA</td>
+                <td>basecampouterwear.com</td>
                 <td>Has an active Ambassadors page with an application form.</td>
                 <td>Greg S. — Brand Marketing</td>
               </tr>
@@ -743,6 +777,10 @@
           </table>
         </div>
         <p class="sample-mini-note">Placeholder brands for illustration — a real list is matched to your niche.</p>
+        <div class="sample-downloads">
+          <button type="button" class="btn-mini" data-download="pitching" data-tier="pro">Download for pitching</button>
+          <button type="button" class="btn-mini" data-download="bento" data-tier="pro">Download for pitching on Bento</button>
+        </div>
       </details>
     </div>
 
@@ -876,5 +914,69 @@
   © 2026 Sheril · Listed on Bento Marketplace · <a href="index.html">GetMeBrands</a>
 </footer>
 
+<script>
+(function () {
+  var SAMPLES = {
+    starter: [
+      { brand: "Lumen Skin Co.", niche: "Beauty", location: "Austin, TX", website: "lumenskin.co", whyFit: "Runs a monthly UGC gallery and reposts creator content." },
+      { brand: "Basecamp Outerwear", niche: "Fashion", location: "Seattle, WA", website: "basecampouterwear.com", whyFit: "Has an active Ambassadors page with an application form." },
+      { brand: "Loyal Trail Pet Co.", niche: "Pet Care", location: "Fort Collins, CO", website: "loyaltrailpet.com", whyFit: "Recently launched a creator program; still building its roster." }
+    ],
+    pro: [
+      { brand: "Ironclad Supplements", niche: "Fitness", location: "Salt Lake City, UT", website: "ironcladsupp.com", whyFit: "Tags 10+ creators a week and runs a visible affiliate program.", linkedin: "Marcus T. — Influencer Marketing" },
+      { brand: "Hearth & Hollow", niche: "Home & Living", location: "Charleston, SC", website: "hearthandhollow.com", whyFit: "Small team, no in-house creator program yet — early mover advantage.", linkedin: "Fiona W. — Founder" },
+      { brand: "Basecamp Outerwear", niche: "Fashion", location: "Seattle, WA", website: "basecampouterwear.com", whyFit: "Has an active Ambassadors page with an application form.", linkedin: "Greg S. — Brand Marketing" }
+    ]
+  };
+
+  function csvEscape(val) {
+    var s = String(val == null ? "" : val);
+    if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
+    return s;
+  }
+
+  function downloadCsv(filename, rows) {
+    var csv = rows.map(function (r) { return r.map(csvEscape).join(","); }).join("\n");
+    var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  }
+
+  function downloadForPitching(tier) {
+    var rows = SAMPLES[tier];
+    var hasLinkedin = tier === "pro";
+    var header = ["Brand", "Niche", "Location", "Website", "Why it's a fit"];
+    if (hasLinkedin) header.push("LinkedIn contact");
+    var body = rows.map(function (r) {
+      var row = [r.brand, r.niche, r.location, r.website, r.whyFit];
+      if (hasLinkedin) row.push(r.linkedin);
+      return row;
+    });
+    downloadCsv("sample-brand-list-" + tier + ".csv", [header].concat(body));
+  }
+
+  function downloadForBento(tier) {
+    var rows = SAMPLES[tier];
+    var header = ["brand_name", "website"];
+    var body = rows.map(function (r) { return [r.brand, r.website]; });
+    downloadCsv("sample-brand-list-" + tier + "-bento.csv", [header].concat(body));
+  }
+
+  var buttons = document.querySelectorAll("[data-download]");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      var tier = this.dataset.tier;
+      if (this.dataset.download === "bento") downloadForBento(tier);
+      else downloadForPitching(tier);
+    });
+  }
+})();
+</script>
 </body>
 </html>
