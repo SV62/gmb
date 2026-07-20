@@ -141,6 +141,142 @@
     opacity: 0.9;
   }
 
+  /* ─── BRAND LISTS ─── */
+  .featured-section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .featured-card-compact {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .featured-card-compact.highlight {
+    background: var(--green-light);
+    border: 2px solid var(--green);
+  }
+
+  .featured-card-compact .featured-badge-sm {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    width: fit-content;
+  }
+
+  .badge-green {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  .badge-purple {
+    background: var(--premium);
+    color: var(--white);
+  }
+
+  .featured-card-compact h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+
+  .featured-card-compact .featured-price {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.4rem;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+
+  .featured-card-compact .featured-price.purple {
+    color: var(--premium);
+  }
+
+  .featured-card-compact .featured-description {
+    font-size: 0.88rem;
+    color: var(--body);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .featured-card-compact .featured-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 4px;
+  }
+
+  .featured-card-compact .featured-list li {
+    font-size: 0.88rem;
+    color: var(--body);
+    padding: 5px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+
+  .featured-card-compact .featured-list li::before {
+    content: '✓';
+    color: var(--green);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .featured-card-compact[style*="premium"] .featured-list li::before {
+    color: var(--premium);
+  }
+
+  .featured-card-compact .marketplace-link {
+    display: block;
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .featured-card-compact .marketplace-link a {
+    display: inline-block;
+    width: 100%;
+    background: var(--green);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    box-sizing: border-box;
+  }
+
+  .featured-card-compact[style*="premium"] .marketplace-link a {
+    background: var(--premium);
+  }
+
+  .featured-card-compact .marketplace-link a:hover {
+    opacity: 0.9;
+  }
+
+  @media (max-width: 700px) {
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* ─── SERVICES GRID ─── */
   .services-section {
     max-width: 900px;
@@ -444,11 +580,58 @@
 
 <div class="section-divider"><hr></div>
 
+<!-- BRAND LISTS -->
+<section class="featured-section">
+  <div class="services-section-header" style="margin-bottom: 32px;">
+    <h2>Brand lists</h2>
+    <p>Fresh brands with real creator/social proof — purchasable only through Bento Marketplace.</p>
+  </div>
+
+  <div class="featured-grid">
+
+    <!-- $30 -->
+    <div class="featured-card-compact highlight">
+      <span class="featured-badge-sm badge-green">Starter</span>
+      <h3>Brand List</h3>
+      <div class="featured-price">$30</div>
+      <p class="featured-description">100 brands in your niche with real social proof and creator engagement — brand name, niche, location, and why each one is worth pitching.</p>
+      <ul class="featured-list">
+        <li>100 brands matched to your niche</li>
+        <li>Brand name, niche, location, and pitch rationale</li>
+        <li>One-time delivery</li>
+      </ul>
+      <div class="marketplace-link">
+        <a href="https://www.onbento.com/marketplace" target="_blank" rel="noopener">View on Bento Marketplace ↗</a>
+      </div>
+    </div>
+
+    <!-- $150 -->
+    <div class="featured-card-compact" style="background: var(--premium-light); border: 2px solid var(--premium);">
+      <span class="featured-badge-sm badge-purple">Pro</span>
+      <h3>Brand List Pro</h3>
+      <div class="featured-price purple">$150</div>
+      <p class="featured-description">300 brands with real creator/social proof — plus the LinkedIn contact for each brand so you can follow up directly with the right person.</p>
+      <ul class="featured-list" style="--check-color: var(--premium);">
+        <li>300 brands matched to your niche</li>
+        <li>LinkedIn contact included for each brand — follow up directly with decision-makers</li>
+        <li>Brand name, niche, location, and pitch rationale</li>
+        <li>One-time delivery</li>
+      </ul>
+      <div class="marketplace-link">
+        <a href="https://www.onbento.com/marketplace" target="_blank" rel="noopener">View on Bento Marketplace ↗</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
 <!-- OTHER SERVICES -->
 <section class="services-section">
   <div class="services-section-header">
     <h2>One-time services</h2>
-    <p>Go deeper with personalized strategy, templates, and hands-on support.</p>
+    <p>Go deeper with personalized strategy, templates, and hands-on support — purchasable only through Bento Marketplace.</p>
   </div>
 
   <div class="services-grid">
