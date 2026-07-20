@@ -112,280 +112,33 @@
     border-top: 1px solid var(--border);
   }
 
-  /* ─── FEATURED SERVICE ─── */
-  .featured-section {
+  /* ─── MARKETPLACE CTA ─── */
+  .marketplace-cta {
     max-width: 900px;
     margin: 0 auto;
-    padding: 60px 24px;
+    padding: 48px 24px 0;
+    text-align: center;
   }
 
-  .featured-card {
-    background: var(--green-light);
-    border: 2px solid var(--green);
-    border-radius: 12px;
-    padding: 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .featured-badge {
-    display: inline-block;
-    background: var(--green);
-    color: var(--white);
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 20px;
-  }
-
-  .featured-card h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2rem;
-    color: var(--ink);
-    margin-bottom: 8px;
-    line-height: 1.25;
-  }
-
-  .featured-price {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.6rem;
-    color: var(--green);
-    margin-bottom: 20px;
-  }
-
-  .featured-price span {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-weight: 400;
-  }
-
-  .featured-description {
+  .marketplace-cta p {
     font-size: 0.95rem;
     color: var(--body);
-    margin-bottom: 24px;
-    line-height: 1.75;
-    max-width: 680px;
+    margin-bottom: 16px;
   }
 
-  .featured-list {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 24px;
-  }
-
-  .featured-list li {
-    font-size: 0.92rem;
-    color: var(--body);
-    padding: 6px 0;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    line-height: 1.6;
-  }
-
-  .featured-list li::before {
-    content: '✓';
-    color: var(--green);
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .featured-note {
-    font-size: 0.85rem;
-    color: var(--muted);
-    font-style: italic;
-    padding-top: 12px;
-    border-top: 1px solid rgba(45, 138, 78, 0.2);
-  }
-
-  .featured-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-
-  .featured-card-compact {
-    background: var(--white);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 36px;
-    position: relative;
-  }
-
-  .featured-card-compact.highlight {
-    background: var(--green-light);
-    border: 2px solid var(--green);
-  }
-
-  .featured-card-compact .featured-badge-sm {
+  .marketplace-cta a {
     display: inline-block;
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 16px;
-  }
-
-  .badge-green {
-    background: var(--green);
+    background: var(--accent);
     color: var(--white);
-  }
-
-  .badge-purple {
-    background: var(--premium);
-    color: var(--white);
-  }
-
-  .featured-card-compact h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    color: var(--ink);
-    margin-bottom: 6px;
-    font-weight: 400;
-  }
-
-  .featured-card-compact .featured-price {
-    font-size: 1.4rem;
-    margin-bottom: 16px;
-  }
-
-  .featured-card-compact .featured-price.purple {
-    color: var(--premium);
-  }
-
-  .featured-card-compact .featured-description {
-    font-size: 0.88rem;
-    margin-bottom: 20px;
-  }
-
-  .featured-card-compact .featured-list li {
-    font-size: 0.88rem;
-    padding: 5px 0;
-  }
-
-  .featured-card-compact .featured-note {
-    font-size: 0.8rem;
-    border-top-color: var(--border);
-  }
-
-  .featured-card-compact .featured-list li::before {
-    color: var(--green);
-  }
-
-  .featured-card-compact[style*="premium"] .featured-list li::before {
-    color: var(--premium);
-  }
-
-  /* ─── SAMPLE LIST TOGGLE ─── */
-  .sample-toggle {
-    margin-top: 18px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border);
-  }
-
-  .sample-toggle summary {
-    cursor: pointer;
-    font-size: 0.85rem;
     font-weight: 600;
-    color: var(--accent);
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .sample-toggle summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .sample-toggle summary::before {
-    content: '▸';
-    font-size: 0.7rem;
-    transition: transform 0.15s;
-  }
-
-  .sample-toggle[open] summary::before {
-    transform: rotate(90deg);
-  }
-
-  .sample-mini-table-wrap {
-    margin-top: 14px;
-    overflow-x: auto;
-    border: 1px solid var(--border);
+    font-size: 0.9rem;
+    padding: 12px 24px;
     border-radius: 8px;
-    background: var(--white);
+    text-decoration: none;
   }
 
-  .sample-mini-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.76rem;
-    min-width: 460px;
-  }
-
-  .sample-mini-table th,
-  .sample-mini-table td {
-    padding: 8px 10px;
-    border-bottom: 1px solid var(--border);
-    text-align: left;
-    vertical-align: top;
-  }
-
-  .sample-mini-table th {
-    background: var(--surface);
-    font-weight: 700;
-    font-size: 0.68rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--muted);
-  }
-
-  .sample-mini-table tr:last-child td {
-    border-bottom: none;
-  }
-
-  .sample-mini-note {
-    font-size: 0.72rem;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 8px;
-  }
-
-  .sample-downloads {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 14px;
-  }
-
-  .btn-mini {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    background: var(--white);
-    color: var(--ink);
-    cursor: pointer;
-  }
-
-  .btn-mini:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  @media (max-width: 700px) {
-    .featured-grid {
-      grid-template-columns: 1fr;
-    }
+  .marketplace-cta a:hover {
+    opacity: 0.9;
   }
 
   /* ─── SERVICES GRID ─── */
@@ -655,8 +408,6 @@
     .hero { padding: 48px 20px 40px; }
     .hero h1 { font-size: 2.2rem; }
     .hero-stats { gap: 28px; }
-    .featured-card { padding: 28px; }
-    .featured-card h2 { font-size: 1.5rem; }
     .service-card { padding: 24px; }
     .about-card { padding: 28px; }
     .about-creds { gap: 20px; }
@@ -686,127 +437,10 @@
   </div>
 </section>
 
-<div class="section-divider"><hr></div>
-
-<!-- MONTHLY SERVICES -->
-<section class="featured-section">
-  <div class="services-section-header" style="margin-bottom: 32px;">
-    <h2>Brand lists</h2>
-    <p>Fresh brands with real creator/social proof — one-time or ongoing, your call.</p>
-  </div>
-
-  <div class="featured-grid">
-
-    <!-- $30 -->
-    <div class="featured-card-compact highlight">
-      <span class="featured-badge-sm badge-green">Starter</span>
-      <h3>Brand List</h3>
-      <div class="featured-price">$30</div>
-      <p class="featured-description">100 brands in your niche with real social proof and creator engagement — brand name, niche, location, and why each one is worth pitching.</p>
-      <ul class="featured-list">
-        <li>100 brands matched to your niche</li>
-        <li>Brand name, niche, location, and pitch rationale</li>
-        <li>Available as a one-time list or a monthly refresh</li>
-      </ul>
-      <p class="featured-note">One-time or monthly — reach out to arrange delivery.</p>
-      <details class="sample-toggle">
-        <summary>See a sample list</summary>
-        <div class="sample-mini-table-wrap">
-          <table class="sample-mini-table">
-            <thead>
-              <tr><th>Brand</th><th>Niche</th><th>Location</th><th>Website</th><th>Why it's a fit</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Lumen Skin Co.</td>
-                <td>Beauty</td>
-                <td>Austin, TX</td>
-                <td>lumenskin.co</td>
-                <td>Runs a monthly UGC gallery and reposts creator content.</td>
-              </tr>
-              <tr>
-                <td>Basecamp Outerwear</td>
-                <td>Fashion</td>
-                <td>Seattle, WA</td>
-                <td>basecampouterwear.com</td>
-                <td>Has an active Ambassadors page with an application form.</td>
-              </tr>
-              <tr>
-                <td>Loyal Trail Pet Co.</td>
-                <td>Pet Care</td>
-                <td>Fort Collins, CO</td>
-                <td>loyaltrailpet.com</td>
-                <td>Recently launched a creator program; still building its roster.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="sample-mini-note">Placeholder brands for illustration — a real list is matched to your niche.</p>
-        <div class="sample-downloads">
-          <button type="button" class="btn-mini" data-download="pitching" data-tier="starter">Download for pitching</button>
-          <button type="button" class="btn-mini" data-download="bento" data-tier="starter">Download for pitching on Bento</button>
-        </div>
-      </details>
-    </div>
-
-    <!-- $150 -->
-    <div class="featured-card-compact" style="background: var(--premium-light); border: 2px solid var(--premium);">
-      <span class="featured-badge-sm badge-purple">Pro</span>
-      <h3>Brand List Pro</h3>
-      <div class="featured-price purple">$150</div>
-      <p class="featured-description">300 brands with real creator/social proof — plus the LinkedIn contact for each brand so you can follow up directly with the right person.</p>
-      <ul class="featured-list" style="--check-color: var(--premium);">
-        <li>300 brands matched to your niche</li>
-        <li>LinkedIn contact included for each brand — follow up directly with decision-makers</li>
-        <li>Brand name, niche, location, and pitch rationale</li>
-        <li>Available as a one-time list or a monthly refresh</li>
-      </ul>
-      <p class="featured-note">One-time or monthly — reach out to arrange delivery.</p>
-      <details class="sample-toggle">
-        <summary>See a sample list</summary>
-        <div class="sample-mini-table-wrap">
-          <table class="sample-mini-table">
-            <thead>
-              <tr><th>Brand</th><th>Niche</th><th>Location</th><th>Website</th><th>Why it's a fit</th><th>LinkedIn contact</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Ironclad Supplements</td>
-                <td>Fitness</td>
-                <td>Salt Lake City, UT</td>
-                <td>ironcladsupp.com</td>
-                <td>Tags 10+ creators a week and runs a visible affiliate program.</td>
-                <td>Marcus T. — Influencer Marketing</td>
-              </tr>
-              <tr>
-                <td>Hearth &amp; Hollow</td>
-                <td>Home &amp; Living</td>
-                <td>Charleston, SC</td>
-                <td>hearthandhollow.com</td>
-                <td>Small team, no in-house creator program yet — early mover advantage.</td>
-                <td>Fiona W. — Founder</td>
-              </tr>
-              <tr>
-                <td>Basecamp Outerwear</td>
-                <td>Fashion</td>
-                <td>Seattle, WA</td>
-                <td>basecampouterwear.com</td>
-                <td>Has an active Ambassadors page with an application form.</td>
-                <td>Greg S. — Brand Marketing</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="sample-mini-note">Placeholder brands for illustration — a real list is matched to your niche.</p>
-        <div class="sample-downloads">
-          <button type="button" class="btn-mini" data-download="pitching" data-tier="pro">Download for pitching</button>
-          <button type="button" class="btn-mini" data-download="bento" data-tier="pro">Download for pitching on Bento</button>
-        </div>
-      </details>
-    </div>
-
-  </div>
-</section>
+<div class="marketplace-cta">
+  <p>All services are available exclusively through Bento Marketplace.</p>
+  <a href="https://www.onbento.com/marketplace" target="_blank" rel="noopener">View &amp; purchase on Bento Marketplace ↗</a>
+</div>
 
 <div class="section-divider"><hr></div>
 
@@ -937,72 +571,8 @@
 </section>
 
 <footer class="footer">
-  © 2026 Sheril · Listed on Bento Marketplace · <a href="index.html">GetMeBrands</a>
+  © 2026 Sheril · <a href="https://www.onbento.com/marketplace" target="_blank" rel="noopener">Listed on Bento Marketplace</a> · <a href="index.html">GetMeBrands</a>
 </footer>
 
-<script>
-(function () {
-  var SAMPLES = {
-    starter: [
-      { brand: "Lumen Skin Co.", niche: "Beauty", location: "Austin, TX", website: "lumenskin.co", whyFit: "Runs a monthly UGC gallery and reposts creator content." },
-      { brand: "Basecamp Outerwear", niche: "Fashion", location: "Seattle, WA", website: "basecampouterwear.com", whyFit: "Has an active Ambassadors page with an application form." },
-      { brand: "Loyal Trail Pet Co.", niche: "Pet Care", location: "Fort Collins, CO", website: "loyaltrailpet.com", whyFit: "Recently launched a creator program; still building its roster." }
-    ],
-    pro: [
-      { brand: "Ironclad Supplements", niche: "Fitness", location: "Salt Lake City, UT", website: "ironcladsupp.com", whyFit: "Tags 10+ creators a week and runs a visible affiliate program.", linkedin: "Marcus T. — Influencer Marketing" },
-      { brand: "Hearth & Hollow", niche: "Home & Living", location: "Charleston, SC", website: "hearthandhollow.com", whyFit: "Small team, no in-house creator program yet — early mover advantage.", linkedin: "Fiona W. — Founder" },
-      { brand: "Basecamp Outerwear", niche: "Fashion", location: "Seattle, WA", website: "basecampouterwear.com", whyFit: "Has an active Ambassadors page with an application form.", linkedin: "Greg S. — Brand Marketing" }
-    ]
-  };
-
-  function csvEscape(val) {
-    var s = String(val == null ? "" : val);
-    if (/[",\n]/.test(s)) return '"' + s.replace(/"/g, '""') + '"';
-    return s;
-  }
-
-  function downloadCsv(filename, rows) {
-    var csv = rows.map(function (r) { return r.map(csvEscape).join(","); }).join("\n");
-    var blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(url);
-  }
-
-  function downloadForPitching(tier) {
-    var rows = SAMPLES[tier];
-    var hasLinkedin = tier === "pro";
-    var header = ["Brand", "Niche", "Location", "Website", "Why it's a fit"];
-    if (hasLinkedin) header.push("LinkedIn contact");
-    var body = rows.map(function (r) {
-      var row = [r.brand, r.niche, r.location, r.website, r.whyFit];
-      if (hasLinkedin) row.push(r.linkedin);
-      return row;
-    });
-    downloadCsv("sample-brand-list-" + tier + ".csv", [header].concat(body));
-  }
-
-  function downloadForBento(tier) {
-    var rows = SAMPLES[tier];
-    var header = ["brand_name", "website"];
-    var body = rows.map(function (r) { return [r.brand, r.website]; });
-    downloadCsv("sample-brand-list-" + tier + "-bento.csv", [header].concat(body));
-  }
-
-  var buttons = document.querySelectorAll("[data-download]");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      var tier = this.dataset.tier;
-      if (this.dataset.download === "bento") downloadForBento(tier);
-      else downloadForPitching(tier);
-    });
-  }
-})();
-</script>
 </body>
 </html>
