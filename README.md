@@ -13,23 +13,22 @@ contact.
 This is a marketing/request site, not a live database tool. The "Sample
 list" section on the page is a small hardcoded prototype (5 rows) showing
 what a real request comes back looking like — there's no filtering or
-export-yourself flow. Fulfillment is manual for now: a request comes in via
-the pricing CTAs or the contact email, and a human puts the list together.
+export-yourself flow. All pricing CTAs link out to **Bento Marketplace**
+(onbento.com/marketplace) rather than a direct-contact flow, per Bento's
+policy against directing marketplace buyers off-platform.
 
 ## What's here
 
-No build step, no framework, no dependencies — a static site you can open
-directly or serve from anywhere:
+No build step, no framework, no dependencies, no JS — a fully static site
+you can open directly or serve from anywhere:
 
 - `index.html` — the GetMeBrands landing/request page
 - `portfolio.html` — a separate, self-contained personal portfolio page (own
   fonts/colors). Intentionally **not linked** anywhere on the GetMeBrands
   site and marked `noindex, nofollow` — reachable only by whoever has the
-  direct URL (`getmebrands.com/portfolio.html`)
+  direct URL (`getmebrands.com/portfolio.html`). Also links out to Bento
+  Marketplace rather than a direct-contact flow, for the same reason.
 - `assets/css/style.css` — styling for `index.html`
-- `assets/js/app.js` — the pricing "I'm interested" buttons (mailto +
-  clipboard fallback, since mailto alone silently does nothing without a
-  default mail app configured)
 - `assets/img/og-image.png` — Open Graph / Twitter Card preview image
 - `robots.txt` / `sitemap.xml` — basic SEO/crawling config
 - `CNAME` — GitHub Pages custom domain config for `getmebrands.com`

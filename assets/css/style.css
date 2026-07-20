@@ -67,12 +67,10 @@ header.nav{position:sticky;top:0;z-index:100;background:rgba(248,248,251,.92);ba
 .pricing-card.featured{border-color:var(--brand);box-shadow:0 4px 20px rgba(75,60,240,.16)}
 .popular-badge{position:absolute;top:-12px;right:24px;background:var(--brand);color:#fff;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
 .price{font-size:32px;font-weight:800;letter-spacing:-1px;margin:6px 0 14px}
-.price span{font-size:13px;font-weight:600;color:var(--ink-soft);margin-left:6px}
 .pricing-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin:16px 0 22px;font-size:13.5px;color:var(--ink-soft)}
 .pricing-features li{position:relative;padding-left:20px}
 .pricing-features li::before{content:"✓";position:absolute;left:0;color:var(--brand);font-weight:800}
 .pricing-card .btn{margin-top:auto;justify-content:center}
-.interest-fallback{font-size:12px;color:var(--ink-soft);margin-top:10px;line-height:1.5}
 
 /* Sample list */
 .sample-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);background:var(--paper-raised)}
