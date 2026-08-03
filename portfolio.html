@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sheril — Creator Outreach Strategist</title>
+<title>Sheril — Creator Strategist &amp; Web Builder</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
@@ -37,10 +37,28 @@
 
   /* ─── HERO ─── */
   .hero {
+    position: relative;
     max-width: 900px;
     margin: 0 auto;
     padding: 80px 24px 60px;
     text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -140px;
+    left: 50%;
+    width: 720px;
+    height: 480px;
+    transform: translateX(-50%);
+    background:
+      radial-gradient(circle at 25% 30%, rgba(197, 112, 93, 0.16), transparent 55%),
+      radial-gradient(circle at 75% 25%, rgba(105, 64, 165, 0.12), transparent 55%),
+      radial-gradient(circle at 50% 70%, rgba(45, 138, 78, 0.1), transparent 55%);
+    z-index: -1;
+    pointer-events: none;
   }
 
   .hero-eyebrow {
@@ -135,10 +153,13 @@
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;
+    box-shadow: 0 4px 14px rgba(197, 112, 93, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .marketplace-cta a:hover {
-    opacity: 0.9;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 22px rgba(197, 112, 93, 0.45);
   }
 
   /* ─── BRAND LISTS ─── */
@@ -161,6 +182,12 @@
     padding: 36px;
     display: flex;
     flex-direction: column;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .featured-card-compact:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(27, 27, 24, 0.08);
   }
 
   .featured-card-compact.highlight {
@@ -261,6 +288,8 @@
     border-radius: 8px;
     text-decoration: none;
     box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .featured-card-compact[style*="premium"] .marketplace-link a {
@@ -268,7 +297,12 @@
   }
 
   .featured-card-compact .marketplace-link a:hover {
-    opacity: 0.9;
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(45, 138, 78, 0.35);
+  }
+
+  .featured-card-compact[style*="premium"] .marketplace-link a:hover {
+    box-shadow: 0 8px 20px rgba(105, 64, 165, 0.35);
   }
 
   /* ─── SAMPLE LIST TOGGLE ─── */
@@ -388,11 +422,13 @@
     border-radius: 10px;
     padding: 36px;
     position: relative;
-    transition: border-color 0.2s;
+    transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .service-card:hover {
-    border-color: var(--muted);
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 32px rgba(27, 27, 24, 0.08);
   }
 
   .card-header {
@@ -482,7 +518,7 @@
   /* ─── RECENT WORK ─── */
   .work-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
@@ -494,12 +530,13 @@
     text-decoration: none;
     color: inherit;
     background: var(--white);
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
   }
 
   .work-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(197, 112, 93, 0.18);
+    transform: translateY(-6px);
+    border-color: var(--accent);
   }
 
   .work-card img {
@@ -509,6 +546,11 @@
     object-position: top;
     display: block;
     border-bottom: 1px solid var(--border);
+    transition: transform 0.4s ease;
+  }
+
+  .work-card:hover img {
+    transform: scale(1.08);
   }
 
   .work-card-body {
@@ -534,6 +576,12 @@
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--accent);
+  }
+
+  @media (max-width: 860px) {
+    .work-grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   @media (max-width: 700px) {
@@ -686,15 +734,28 @@
     .about-card { padding: 28px; }
     .about-creds { gap: 20px; }
   }
+
+  /* ─── SCROLL REVEAL ─── */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 </style>
 </head>
 <body>
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Creator Outreach Strategist</p>
-  <h1>I help creators stop pitching <em>blindly</em></h1>
-  <p class="hero-sub">Brand lists, pitch strategy, and negotiation support — built by Bento's in-house Customer Success Manager.</p>
+  <p class="hero-eyebrow">Creator Strategist &amp; Web Builder</p>
+  <h1>I help creators pitch <em>smarter</em>, and show up looking the part</h1>
+  <p class="hero-sub">Brand lists, pitch strategy, and negotiation support — plus the website to back it all up. Built by Bento's in-house Customer Success Manager.</p>
   <div class="hero-stats">
     <div class="stat">
       <div class="stat-number">1,000+</div>
@@ -719,7 +780,7 @@
 <div class="section-divider"><hr></div>
 
 <!-- BRAND LISTS -->
-<section class="featured-section">
+<section class="featured-section reveal">
   <div class="services-section-header" style="margin-bottom: 32px;">
     <h2>Brand lists</h2>
     <p>Fresh brands with real creator/social proof — purchasable only through Bento Marketplace.</p>
@@ -836,7 +897,7 @@
 <div class="section-divider"><hr></div>
 
 <!-- OTHER SERVICES -->
-<section class="services-section">
+<section class="services-section reveal">
   <div class="services-section-header">
     <h2>Playbook</h2>
     <p>Go deeper with personalized strategy, templates, and hands-on support — purchasable only through Bento Marketplace.</p>
@@ -873,7 +934,7 @@
 <div class="section-divider"><hr></div>
 
 <!-- WEBSITE BUILD -->
-<section class="services-section">
+<section class="services-section reveal">
   <div class="services-section-header">
     <h2>Website Build</h2>
     <p>A clean, single-page website — built and delivered, ready to publish.</p>
@@ -902,10 +963,10 @@
 </section>
 
 <!-- RECENT WORK -->
-<section class="services-section">
+<section class="services-section reveal">
   <div class="services-section-header">
     <h2>Recent work</h2>
-    <p>A couple of examples of sites built and delivered.</p>
+    <p>A few examples of sites built and delivered.</p>
   </div>
   <div class="work-grid">
     <a class="work-card" href="https://spinmasterstennis.ae" target="_blank" rel="noopener">
@@ -924,13 +985,21 @@
         <span class="work-card-link">getmebrands.com ↗</span>
       </div>
     </a>
+    <a class="work-card" href="https://sv62.github.io/keg360/" target="_blank" rel="noopener">
+      <img src="assets/img/work-keg360.png" alt="KEG Challenge 360 dashboard">
+      <div class="work-card-body">
+        <h3>KEG Challenge 360</h3>
+        <p>A mobile-first leaderboard dashboard for a cycling challenge — live rider standings and stats.</p>
+        <span class="work-card-link">sv62.github.io/keg360 ↗</span>
+      </div>
+    </a>
   </div>
 </section>
 
 <div class="section-divider"><hr></div>
 
 <!-- ABOUT -->
-<section class="about-section">
+<section class="about-section reveal">
   <div class="about-card">
     <div>
       <div class="about-header">
@@ -982,5 +1051,64 @@
   © 2026 Sheril · <a href="https://www.onbento.com/marketplace" target="_blank" rel="noopener">Listed on Bento Marketplace</a> · <a href="index.html">GetMeBrands</a>
 </footer>
 
+<script>
+(function () {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if (revealEls.length && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  var statEls = document.querySelectorAll('.stat-number');
+  var statsAnimated = false;
+  function animateStats() {
+    if (statsAnimated) return;
+    statsAnimated = true;
+    statEls.forEach(function (el) {
+      var text = el.textContent.trim();
+      var match = text.match(/^([\d,]+)/);
+      if (!match) return;
+      var target = parseInt(match[1].replace(/,/g, ''), 10);
+      var suffix = text.slice(match[1].length);
+      var duration = 900;
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.floor(eased * target);
+        el.textContent = current.toLocaleString() + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target.toLocaleString() + suffix;
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  var heroStats = document.querySelector('.hero-stats');
+  if (heroStats && 'IntersectionObserver' in window) {
+    var statsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateStats();
+          statsObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    statsObserver.observe(heroStats);
+  } else {
+    animateStats();
+  }
+})();
+</script>
 </body>
 </html>
