@@ -523,7 +523,8 @@
   }
 
   .work-card {
-    display: block;
+    display: flex;
+    flex-direction: column;
     border: 1px solid var(--border);
     border-radius: 12px;
     overflow: hidden;
@@ -542,6 +543,7 @@
   .work-card img {
     width: 100%;
     height: 180px;
+    flex-shrink: 0;
     object-fit: cover;
     object-position: top;
     display: block;
@@ -555,6 +557,9 @@
 
   .work-card-body {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .work-card-body h3 {
@@ -576,6 +581,8 @@
     font-size: 0.8rem;
     font-weight: 600;
     color: var(--accent);
+    margin-top: auto;
+    padding-top: 8px;
   }
 
   @media (max-width: 860px) {
@@ -753,9 +760,9 @@
 
 <!-- HERO -->
 <section class="hero">
-  <p class="hero-eyebrow">Creator Strategist &amp; Web Builder</p>
-  <h1>I help creators pitch <em>smarter</em>, and show up looking the part</h1>
-  <p class="hero-sub">Brand lists, pitch strategy, and negotiation support — plus the website to back it all up. Built by Bento's in-house Customer Success Manager.</p>
+  <p class="hero-eyebrow">Web Builder &amp; Creator Strategist</p>
+  <h1>Websites &amp; pitches that <em>land</em></h1>
+  <p class="hero-sub">Custom websites, brand lists, and pitch strategy — built by Bento's in-house Customer Success Manager.</p>
   <div class="hero-stats">
     <div class="stat">
       <div class="stat-number">1,000+</div>
