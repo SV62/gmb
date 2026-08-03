@@ -479,6 +479,69 @@
     font-weight: 600;
   }
 
+  /* ─── RECENT WORK ─── */
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .work-card {
+    display: block;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: var(--white);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .work-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  .work-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .work-card-body {
+    padding: 20px;
+  }
+
+  .work-card-body h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 6px;
+    font-weight: 400;
+  }
+
+  .work-card-body p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+
+  .work-card-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  @media (max-width: 700px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   /* ─── ABOUT ─── */
   .about-section {
     max-width: 900px;
@@ -835,6 +898,32 @@
         <span class="card-meta-item"><strong>Format:</strong> HTML/CSS files</span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- RECENT WORK -->
+<section class="services-section">
+  <div class="services-section-header">
+    <h2>Recent work</h2>
+    <p>A couple of examples of sites built and delivered.</p>
+  </div>
+  <div class="work-grid">
+    <a class="work-card" href="https://spinmasterstennis.ae" target="_blank" rel="noopener">
+      <img src="assets/img/work-spinmasters.png" alt="Spinmasters Tennis Academy website">
+      <div class="work-card-body">
+        <h3>Spinmasters Tennis Academy</h3>
+        <p>A single-page site for a Dubai tennis academy — programs, coaches, and tournament rankings.</p>
+        <span class="work-card-link">spinmasterstennis.ae ↗</span>
+      </div>
+    </a>
+    <a class="work-card" href="https://getmebrands.com" target="_blank" rel="noopener">
+      <img src="assets/img/work-getmebrands.png" alt="GetMeBrands website">
+      <div class="work-card-body">
+        <h3>GetMeBrands</h3>
+        <p>A creator-outreach brand list service — landing page, sample list, and pricing.</p>
+        <span class="work-card-link">getmebrands.com ↗</span>
+      </div>
+    </a>
   </div>
 </section>
 
