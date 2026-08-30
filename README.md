@@ -28,10 +28,30 @@ you can open directly or serve from anywhere:
   site and marked `noindex, nofollow` — reachable only by whoever has the
   direct URL (`getmebrands.com/portfolio.html`). Also links out to Bento
   Marketplace rather than a direct-contact flow, for the same reason.
+- `l.html` — a private, self-contained curated brand list built for one
+  creator. Same pattern as `portfolio.html`: intentionally **not linked**
+  anywhere on the site, not in `sitemap.xml`, and marked `noindex, nofollow`
+  — reachable only by whoever has the direct URL
+  (`getmebrands.com/l.html`). This is obscurity, not access control — see
+  the note below before treating it as private.
 - `assets/css/style.css` — styling for `index.html`
 - `assets/img/og-image.png` — Open Graph / Twitter Card preview image
 - `robots.txt` / `sitemap.xml` — basic SEO/crawling config
 - `CNAME` — GitHub Pages custom domain config for `getmebrands.com`
+
+## Unlisted pages ("hidden" pages)
+
+`portfolio.html` and `l.html` are **unlisted, not access-controlled**.
+This is a static site with no backend, login, or auth of any kind, so
+"hidden" here means: not linked from `index.html`, not in `sitemap.xml`,
+and marked `noindex, nofollow` so search engines won't crawl or list it.
+Anyone who has the exact URL — because it was shared with them, guessed,
+found in server logs/analytics, or found via a browser history/cache — can
+open it; there's nothing on the page or server enforcing that only one
+person can view it. Treat the URL itself as the secret, the same way you'd
+treat an unlisted Google Doc link, and don't share it anywhere public. If
+real per-person access control is ever needed (e.g. a password gate or
+login), that requires adding server-side logic GitHub Pages alone can't do.
 
 ## SEO
 
