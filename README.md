@@ -28,12 +28,12 @@ you can open directly or serve from anywhere:
   site and marked `noindex, nofollow` — reachable only by whoever has the
   direct URL (`getmebrands.com/portfolio.html`). Also links out to Bento
   Marketplace rather than a direct-contact flow, for the same reason.
-- `lizzy.html` — a private, self-contained curated brand list built for one
+- `l.html` — a private, self-contained curated brand list built for one
   creator. Same pattern as `portfolio.html`: intentionally **not linked**
   anywhere on the site, not in `sitemap.xml`, and marked `noindex, nofollow`
   — reachable only by whoever has the direct URL
-  (`getmebrands.com/lizzy.html`). This is obscurity, not access control —
-  see the note below before treating it as private.
+  (`getmebrands.com/l.html`). This is obscurity, not access control — see
+  the note below before treating it as private.
 - `assets/css/style.css` — styling for `index.html`
 - `assets/img/og-image.png` — Open Graph / Twitter Card preview image
 - `robots.txt` / `sitemap.xml` — basic SEO/crawling config
@@ -41,7 +41,7 @@ you can open directly or serve from anywhere:
 
 ## Unlisted pages ("hidden" pages)
 
-`portfolio.html` and `lizzy.html` are **unlisted, not access-controlled**.
+`portfolio.html` and `l.html` are **unlisted, not access-controlled**.
 This is a static site with no backend, login, or auth of any kind, so
 "hidden" here means: not linked from `index.html`, not in `sitemap.xml`,
 and marked `noindex, nofollow` so search engines won't crawl or list it.
