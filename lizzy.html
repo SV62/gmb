@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Brand Engine — Lizzy</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Libre+Franklin:wght@400;500;600;700;800&display=swap');
+
+  :root{
+    --paper:#f4f1ec;
+    --surface:#ffffff;
+    --surface-2:#eeeae2;
+    --ink:#2b2430;
+    --ink-soft:#736c78;
+    --ink-faint:#a49cac;
+    --berry:#a23b57;
+    --berry-tint:#f3dee3;
+    --sage:#5b7259;
+    --sage-tint:#e2e8dd;
+    --gold:#a9791f;
+    --gold-tint:#f1e6cc;
+    --blue:#456079;
+    --blue-tint:#dee7ed;
+    --copper:#9a5a2e;
+    --copper-tint:#f0ddc9;
+    --plum:#7a5a92;
+    --plum-tint:#e7ddf0;
+    --teal:#2f6f6d;
+    --teal-tint:#dceae8;
+    --indigo:#4f5b93;
+    --indigo-tint:#e2e4f3;
+    --emerald:#2e7d4f;
+    --emerald-tint:#dcefe3;
+    --coral:#b5502f;
+    --coral-tint:#f5e0d8;
+    --amazon:#b8791a;
+    --amazon-tint:#f7e6d0;
+    --ltk:#a13f7c;
+    --ltk-tint:#f3e0ee;
+    --xmas:#9c3030;
+    --xmas-tint:#f5dcdc;
+    --line:#e2dcd1;
+    --shadow: 0 1px 2px rgba(43,36,48,0.06), 0 6px 20px -8px rgba(43,36,48,0.12);
+    --radius: 14px;
+  }
+
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1c1720;
+      --surface:#251f29;
+      --surface-2:#2c2530;
+      --ink:#f1ece9;
+      --ink-soft:#b8aec0;
+      --ink-faint:#7d7488;
+      --berry:#e17b93;
+      --berry-tint:#3c2530;
+      --sage:#9bb695;
+      --sage-tint:#2a3327;
+      --gold:#d9b35c;
+      --gold-tint:#372f1f;
+      --blue:#8fb0cc;
+      --blue-tint:#233240;
+      --copper:#e0a468;
+      --copper-tint:#3d2c1a;
+      --plum:#c3a3da;
+      --plum-tint:#372c47;
+      --teal:#7fc4bf;
+      --teal-tint:#1f3a38;
+      --indigo:#a8b3e8;
+      --indigo-tint:#2b2f4a;
+      --emerald:#7fd9a8;
+      --emerald-tint:#1c3a28;
+      --coral:#e8927f;
+      --coral-tint:#3d251f;
+      --amazon:#e0a755;
+      --amazon-tint:#3d2c14;
+      --ltk:#d98fc0;
+      --ltk-tint:#3a2438;
+      --xmas:#dd7a7a;
+      --xmas-tint:#3a1f1f;
+      --line:#3a3240;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 28px -10px rgba(0,0,0,0.5);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#1c1720;
+    --surface:#251f29;
+    --surface-2:#2c2530;
+    --ink:#f1ece9;
+    --ink-soft:#b8aec0;
+    --ink-faint:#7d7488;
+    --berry:#e17b93;
+    --berry-tint:#3c2530;
+    --sage:#9bb695;
+    --sage-tint:#2a3327;
+    --gold:#d9b35c;
+    --gold-tint:#372f1f;
+    --blue:#8fb0cc;
+    --blue-tint:#233240;
+    --copper:#e0a468;
+    --copper-tint:#3d2c1a;
+    --plum:#c3a3da;
+    --plum-tint:#372c47;
+    --teal:#7fc4bf;
+    --teal-tint:#1f3a38;
+    --indigo:#a8b3e8;
+    --indigo-tint:#2b2f4a;
+    --emerald:#7fd9a8;
+    --emerald-tint:#1c3a28;
+    --coral:#e8927f;
+    --coral-tint:#3d251f;
+    --amazon:#e0a755;
+    --amazon-tint:#3d2c14;
+    --ltk:#d98fc0;
+    --ltk-tint:#3a2438;
+    --xmas:#dd7a7a;
+    --xmas-tint:#3a1f1f;
+    --line:#3a3240;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 28px -10px rgba(0,0,0,0.5);
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Libre Franklin', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:2.75rem 1.75rem 5rem;
+  }
+
+  header.masthead{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:2rem;
+    flex-wrap:wrap;
+    padding-bottom:1.75rem;
+    border-bottom:1px solid var(--line);
+    margin-bottom:1.75rem;
+  }
+  .masthead-eyebrow{
+    font-family:'Libre Franklin', sans-serif;
+    font-size:0.72rem;
+    font-weight:700;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--berry);
+    margin:0 0 0.6rem;
+  }
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:clamp(2.1rem, 4vw, 2.9rem);
+    line-height:1.05;
+    letter-spacing:-0.01em;
+    margin:0 0 0.5rem;
+    text-wrap:balance;
+  }
+  .masthead-sub{
+    font-size:1rem;
+    color:var(--ink-soft);
+    max-width:44ch;
+    line-height:1.5;
+    margin:0;
+  }
+  .masthead-meta{
+    text-align:right;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    line-height:1.6;
+  }
+  .masthead-meta strong{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:2.1rem;
+    font-weight:600;
+    color:var(--ink);
+    line-height:1;
+    margin-bottom:0.2rem;
+  }
+
+  .source-line{
+    display:flex;
+    align-items:center;
+    gap:0.6rem;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    margin-bottom:2rem;
+  }
+  .source-line img{
+    width:22px;height:22px;border-radius:6px;object-fit:cover;
+  }
+  .source-line a{
+    color:var(--berry);
+    text-decoration:none;
+    font-weight:600;
+  }
+  .source-line a:hover{text-decoration:underline;}
+
+  .toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+    flex-wrap:wrap;
+    margin-bottom:1.75rem;
+  }
+  .filters{
+    display:flex;
+    gap:0.5rem;
+    flex-wrap:wrap;
+  }
+  .chip{
+    appearance:none;
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--ink-soft);
+    font-family:inherit;
+    font-size:0.82rem;
+    font-weight:600;
+    padding:0.5rem 0.95rem;
+    border-radius:999px;
+    cursor:pointer;
+    transition:background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+  .chip:hover{border-color:var(--berry);color:var(--ink);}
+  .chip.active{
+    background:var(--ink);
+    border-color:var(--ink);
+    color:var(--paper);
+  }
+  .search{
+    display:flex;
+    align-items:center;
+    gap:0.5rem;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:0.5rem 0.95rem 0.5rem 0.8rem;
+    min-width:230px;
+  }
+  .search svg{flex:none;color:var(--ink-faint);}
+  .search input{
+    border:none;
+    outline:none;
+    background:transparent;
+    color:var(--ink);
+    font-family:inherit;
+    font-size:0.88rem;
+    width:100%;
+  }
+  .search input::placeholder{color:var(--ink-faint);}
+
+  .group{margin-bottom:2.5rem;}
+  .group-head{
+    display:flex;
+    align-items:baseline;
+    gap:0.65rem;
+    margin-bottom:1rem;
+  }
+  .group-head h2{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.35rem;
+    margin:0;
+  }
+  .group-count{
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    font-variant-numeric:tabular-nums;
+  }
+  .group-line{
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+    gap:1rem;
+  }
+
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:1.15rem 1.25rem 1.3rem;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    gap:0.7rem;
+  }
+  .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:0.75rem;
+  }
+  .card-title{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.18rem;
+    line-height:1.2;
+    margin:0;
+  }
+  .card-desc{
+    font-size:0.82rem;
+    color:var(--ink-soft);
+    line-height:1.45;
+    margin:0;
+  }
+  .status{
+    flex:none;
+    display:inline-flex;
+    align-items:center;
+    gap:0.35rem;
+    font-size:0.7rem;
+    font-weight:700;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    color:var(--sage);
+    background:var(--sage-tint);
+    padding:0.3rem 0.6rem 0.3rem 0.5rem;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .status::before{
+    content:"";
+    width:6px;height:6px;border-radius:50%;
+    background:var(--sage);
+  }
+  .status.rating{
+    color:var(--copper);
+    background:var(--copper-tint);
+  }
+  .status.rating::before{content:none;}
+
+  .quote{
+    font-size:0.87rem;
+    font-style:italic;
+    color:var(--ink);
+    background:var(--surface-2);
+    border-left:2.5px solid var(--berry);
+    padding:0.55rem 0.75rem;
+    border-radius:0 8px 8px 0;
+    line-height:1.5;
+  }
+
+  .meta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0.4rem;
+    margin-top:0.1rem;
+  }
+  .tag{
+    font-size:0.72rem;
+    font-weight:600;
+    padding:0.22rem 0.55rem;
+    border-radius:6px;
+  }
+  .tag.cat-beauty{background:var(--gold-tint);color:var(--gold);}
+  .tag.cat-video{background:var(--emerald-tint);color:var(--emerald);}
+  .tag.cat-search{background:var(--coral-tint);color:var(--coral);}
+  .tag.cat-amazon{background:var(--amazon-tint);color:var(--amazon);}
+  .tag.cat-ltk{background:var(--ltk-tint);color:var(--ltk);}
+  .tag.cat-xmas{background:var(--xmas-tint);color:var(--xmas);}
+  .tag.cat-fashion{background:var(--berry-tint);color:var(--berry);}
+  .tag.cat-home{background:var(--sage-tint);color:var(--sage);}
+  .tag.cat-dogs{background:var(--blue-tint);color:var(--blue);}
+  .tag.cat-local{background:var(--copper-tint);color:var(--copper);}
+  .tag.cat-momdaughter{background:var(--plum-tint);color:var(--plum);}
+  .tag.cat-fieldhockey{background:var(--teal-tint);color:var(--teal);}
+  .tag.cat-studyhelp{background:var(--indigo-tint);color:var(--indigo);}
+  .tag.town{background:var(--surface-2);color:var(--ink-soft);}
+
+  .stars{
+    color:var(--copper);
+    letter-spacing:0.02em;
+  }
+
+  .links{
+    display:flex;
+    gap:0.9rem;
+    margin-top:0.15rem;
+    font-size:0.8rem;
+    font-weight:600;
+    flex-wrap:wrap;
+  }
+  .links a{
+    color:var(--ink-soft);
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:0.3rem;
+    border-bottom:1px solid transparent;
+  }
+  .links a:hover{color:var(--berry);border-color:var(--berry);}
+
+  .notes{
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    line-height:1.5;
+    border-top:1px dashed var(--line);
+    padding-top:0.6rem;
+    margin-top:0.1rem;
+  }
+  .notes b{color:var(--ink);font-weight:700;}
+
+  .empty{
+    display:none;
+    text-align:center;
+    padding:3rem 1rem;
+    color:var(--ink-soft);
+    font-size:0.95rem;
+  }
+
+  footer{
+    margin-top:3rem;
+    padding-top:1.5rem;
+    border-top:1px solid var(--line);
+    font-size:0.8rem;
+    color:var(--ink-faint);
+    line-height:1.6;
+  }
+
+  @media (max-width:640px){
+    header.masthead{flex-direction:column;align-items:flex-start;}
+    .masthead-meta{text-align:left;}
+    .toolbar{flex-direction:column;align-items:stretch;}
+    .search{min-width:0;}
+  }
+</style>
+
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <p class="masthead-eyebrow">Brand Engine · Meta Ad Library + Google Maps + open web scan</p>
+      <h1>Brands to pitch, worth watching</h1>
+      <p class="masthead-sub">Active Meta advertisers, LTK- and Amazon-active sellers, and standout local businesses whose audience overlaps with Life Pretty on Purpose — millennial &amp; Gen&nbsp;X fashion, beauty, home &amp; garden, four Labradors' worth of dog content, Christmas traditions, and a mom-and-teen-daughter angle, including Ceci's own field hockey and study-help pitching lanes.</p>
+    </div>
+    <div class="masthead-meta">
+      <strong id="stat-count">15</strong>
+      brands &amp; local spots curated<br>
+      13 categories · US + CT/NY · Aug 2026
+    </div>
+  </header>
+
+  <p class="source-line">
+    Curated for
+    <a href="https://www.instagram.com/lifeprettyonpurpose/" target="_blank" rel="noopener">@lifeprettyonpurpose</a>
+    — genx UGC creator + creative strategy, "brands that matter to midlife women"
+  </p>
+
+  <div class="toolbar">
+    <div class="filters" id="filters"></div>
+    <div class="search">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="search" type="text" placeholder="Search brand, place, or town…">
+    </div>
+  </div>
+
+  <div id="groups"></div>
+  <p class="empty" id="empty">Nothing matches that search.</p>
+
+  <footer>
+    National brands: built from a manual pass through Meta's Ad Library (facebook.com/ads/library), filtered to <strong>Active</strong> US ads, across keyword searches built on age and life-stage — Gen X, perimenopause, hormone therapy, 45+, midlife fashion, mother-daughter — plus home decor and dog products. Meta's Ad Library doesn't expose audience race or ethnicity data, so selection here is on life-stage and general-market positioning, not demographic targeting; brands built specifically around another group's distinct product needs (e.g. hair/skin formulated for a different demographic) were left out as a content/audience fit call, the same way a men's grooming brand wouldn't fit this list either. "Ad activity" reflects what was visible on the library at time of capture, not a full account audit — click through to each brand's Ad Library link to see their current full ad set before reaching out.<br><br>
+    Mother &amp; Daughter: brands whose ads or products are literally built for a mom and teen to use or wear together — matching jewelry, teen-skincare-meets-mom-skincare — so both of them have a natural angle to pitch jointly.<br><br>
+    Field Hockey: built for Ceci, who plays. The true field-hockey-only advertiser pool on Meta is small — most of what's actually running are dropship keychains and generic language courses that happened to match the keyword — so this list is the strongest of what's genuinely on-sport (Longstreth, Gryphon, SISU, a field-hockey training board) plus adjacent youth-athlete brands a competitive player's family realistically buys: recruiting, team spirit wear, portable training gear, pre-game hydration. Nine brands, not the fuller round number hoped for — an honest reflection of how niche this sport's ad market is, not a shortfall in the search.<br><br>
+    Tween Study Help: also built for Ceci. Filtered out brands whose current ad set skews SAT/high-school (a poor fit for a middle-schooler) and one guarantee-heavy "grade-level gains, guaranteed" reading program with the same pushy tone as a brand already excluded from the main list — the five kept here are either explicitly middle-school-targeted in their own copy (Cosmo) or age-flexible tools already popular with younger teens (Brainly, IXL, Quizlet, NeuroKids).<br><br>
+    Beauty &amp; Wellness — Instagram-verified UGC (tagged "IG-verified"): brands found by browsing Instagram directly rather than Meta Ad Library, to answer a direct question about proof of recent creator content. Each was checked for an actual recent (within ~1–2 weeks) Reel and read for two things: does the brand collaborate with or repost real creators (not just its own studio content), and do the comments show a pattern of complaints — unauthorized charges, no customer service, "scam" — rather than isolated one-offs. Phosis and O Positiv (MENO) are both actively posting with clean comment sections. This same check is what surfaced a problem: Nuora, previously on this list, had a heavy and repeated pattern of scam and non-delivery complaints across its recent Reels and has been removed — worth Lizzy independently checking any brand's comments before reaching out, regardless of what's on this page.<br><br>
+    Website + IG Video-Verified (tagged "Video-verified") — a stricter follow-up bar: does the brand have actual <em>video</em> — not photos or star-rating/text reviews — embedded on its own website, in addition to recent UGC video on Instagram? mynuora.com was the brand originally offered up as an example of this, but it doesn't actually hold up: its site is text and star-rating reviews plus a small looping carousel of customer photos, no video anywhere, and several of those reviews repeat near-verbatim with garbled Rs./$ currency formatting on the pricing widget — more evidence for the scam pattern that got Nuora removed above. Applying the real bar, six candidates were checked directly on their websites (looking for concrete signs like a "Tap to Unmute" product-gallery clip, a Play control, or a "Photos &amp; Videos" filter on the review widget, not just video-sounding marketing copy) — Womaness, Phosis, O Positiv, Kindra, Stripes Beauty, and Evernow — and only two actually had real embedded video: <strong>Womaness</strong> (video in its product gallery, plus the same creator-tagged Instagram collab noted above) and <strong>Stripes Beauty</strong> (a founder/product video plus a video-capable review widget, active on Instagram though not creator-tagged specifically). This is a deliberately narrow list — two out of six — because the bar itself is narrow; the other four aren't bad brands, they just don't clear "actual video on the website" the way these two do.<br><br>
+    Skincare 45+ — Web Search (tagged "Web-Sourced"): unlike the other sections, these three weren't found by browsing Meta's Ad Library or Instagram for a known short list — they came from an open web search for skincare brands serving US women 45+, then vetted the same way: does the brand have UGC video or a strong UGC presence on Instagram, and are they running any UGC-style ads in Meta Ad Library right now? True Botanicals cleared both — real creator reels turning up natively in its own grid, plus 20+ active Meta ads as of Aug 2026 — though it's a broad clean-beauty brand, so pitch its anti-aging Chebula line specifically rather than its pregnancy line. Modern Age Skin and Emepelle are both explicitly built for perimenopausal/menopausal skin and show real, recent creator activity (Modern Age Skin posting almost daily with warm engagement; Emepelle reposting a creator's personal skin-change story the same day this was checked), but neither had an active Meta ad found under their name — that's flagged plainly in each entry rather than glossed over. Two names that came up in the same search, Pause Well-Aging and State of Menopause, turned out to be dead domains now redirecting to an unrelated streaming site — a reminder that even a well-reviewed brand name can go dark; both were dropped rather than included on outdated information.<br><br>
+    A note on this larger batch (Fashion expansion, Home &amp; Garden, Dogs expansion, Amazon UGC Sellers, LTK UGC Brands, Christmas Specialty, and the new local fashion houses below): this round was researched at a deliberately lighter touch than the sections above — confirming each brand is a real, active, small-to-medium business with genuine UGC/creator evidence, rather than the full Instagram-grid-plus-Ad-Library-plus-comment-screening audit used earlier. Sites were checked for being live and real (not expired/squatted domains), and anything with an obvious scam pattern was quietly dropped rather than flagged. Treat this batch as a strong starting shortlist to verify further before outreach, not a fully audited list.<br><br>
+    Fashion (expanded): the original two menopause-specific picks stay, plus sixteen more millennial-leaning DTC brands — Tuckernuck, Hill House Home, Mille, Rails, Marine Layer, Dagne Dover, Senreve, Gorjana, Brook &amp; York, Little Words Project, Set Active, Year of Ours, Sarah Flint, Margaux, Kindred Bravely, M.M.LaFleur, and Girlfriend Collective — each showing real creator/customer content on Instagram (not just studio shots) or active Meta ads. Deliberately excluded: brands too large to need outreach (Reformation, Aritzia) and brands skewing too young (Studs).<br><br>
+    Home &amp; Garden: twelve brands split across gardening (GreenStalk Garden, Vego Garden, Modern Sprout, Botanical Interests, Dramm, Barebones Living, Radius Garden) and home improvement/DIY (Clare, Backdrop, Tempaper, Wall Control, Brightech), each with an explicit "tag us to be featured," customer photo gallery, or named testimonial program — not just studio product photography. Excluded brands too large/corporate for this list (Solo Stove, Trex, AeroGarden).<br><br>
+    Dogs (expanded): fifteen more brands beyond the original three — West Paw, Ruffwear, Big Barker, Wilderdog, Paw.com, Kurgo, Fi, Wolfgang Man &amp; Beast, P.L.A.Y., Found My Animal, Molly Mutt, The Foggy Dog, Wild One, Harry Barker, and Native Pet — each noted for real owner/creator content or active Meta ads, with call-outs on which are the best fit for large, active dogs like her four Labradors (Big Barker's beds and Ruffwear's adventure gear are the strongest sizing/positioning matches) versus which lean toward smaller-dog aesthetics (Wild One).<br><br>
+    Amazon UGC Sellers (tagged "Amazon-Verified"): twelve brands matching her Amazon storefront/influencer skillset specifically — Solawave, Kitsch, Momcozy, Vegamour, Bedsure, Rael, Bala, Blissy, Renpho, LMNT, Truly Beauty, and a Native Pet listing (cross-referenced with its Dogs entry) — each verified to have Amazon Live creator review videos, a branded Amazon storefront, or an unusually large, review-heavy listing, rather than being scraped generically. Amazon blocks automated browsing, so this evidence came from web search and press coverage rather than direct listing visits — worth a quick look at the actual listing before pitching.<br><br>
+    LTK UGC Brands (tagged "LTK-Verified"): eleven brands confirmed active on the LTK platform (real, dated creator posts linking specific products) AND running UGC-style Meta ads — Pink Lily, Cupshe, amika, K18, Cozy Earth, BÉIS, Vegamour, Dagne Dover, Our Place, TULA Skincare, and Parade. Vegamour and Dagne Dover also appear above under Amazon UGC Sellers and Fashion respectively — genuinely cross-channel brands worth knowing pitch the same brand two different ways.<br><br>
+    Christmas Specialty (tagged via the "Christmas Specialty" category): twelve brands spanning trees &amp; ornaments (King of Christmas, Old World Christmas, Ornament Shop), family matching pajamas (Little Sleepies, Roller Rabbit, Printfresh), personalization &amp; gifting (Marleylilly, Compartés, Bakery Bling), and entertaining (Hester &amp; Cook, Vermont Christmas Company, FreshCut Paper). Checked in late August, before most brands' 2026 holiday campaigns have ramped up — several entries are flagged as showing prior-season evidence rather than a currently live campaign; worth rechecking each closer to Q4 before reaching out. Excluded brands too large for this list (Hallmark, Pottery Barn, Balsam Hill) and one wholesale-only site with no consumer storefront (Cody Foster &amp; Co).<br><br>
+    Local — CT &amp; NY: built from two different passes. The original set is a manual pass through Google Maps across Ridgefield, Wilton and New Canaan, CT, and Bedford, Katonah and Mount Kisco, NY — salons, dental, dog groomers, parks, and entertainment, favoring the highest rating and deepest review base available per category. In towns this size, review counts for boutique services rarely reach the thousands the way parks and national chains do — Waveny Park (1,049 reviews) is the only local listing to clear that bar outright; the rest were chosen as the strongest of what each town actually has. A second, newer pass added six independent fashion boutiques/houses specifically confirmed to be running active Meta ads right now (West2Westport, Mitchells, Elegant Ridgefield, Brand Nu Apparel, Herpret by Harpreet Virk, and A Little Something White Bridal Couture) — found via web search and verified directly in Meta Ad Library rather than by rating. Ridgefield and Westport had by far the strongest hit rate; New Canaan, Wilton, Katonah, Mount Kisco and Bedford, NY turned up dozens of real boutiques with no currently-active ad, so Darien, CT was added as the closest adjacent town once those six ran dry — a genuine reflection of how few very small local shops are running paid social right now, not a gap in the search. Ratings, review counts, and ad status are all a snapshot from Aug 2026 and will drift — recheck before outreach. Not affiliated with or endorsed by Meta or Google.
+  </footer>
+</div>
+
+<script>
+  const DATA = [
+    {
+      name: "LindaPaige",
+      category: "fashion",
+      desc: "Menopause-first fashion label built around body changes, not just trends.",
+      status: "Active · multi-creative",
+      quote: "“Menopause changes more than just your body… clothes don't fit like they used to.”",
+      website: "lindapaige.com",
+      fb: "https://www.facebook.com/lindapaigefashion/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=LindaPaige",
+      notes: "Tagline is literally “Shame-Free Fashion &amp; Freedom Color” — as on-niche as this list gets. Strong UGC voice already."
+    },
+    {
+      name: "Posh West Boutique",
+      category: "fashion",
+      desc: "Small clothing + gifts boutique leaning into midlife style and comfort.",
+      status: "Active · 5 creatives",
+      quote: "“Where midlife style meets confidence and comfort — shop local or shop online.”",
+      website: "poshwestboutique.com",
+      fb: "https://www.facebook.com/poshwestboutique/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Posh%20West%20Boutique",
+      notes: "Independent boutique, likely receptive to creator pitches — smaller budget than the DTC brands below."
+    },
+
+    // — Fashion, sourced from a broader web search for millennial-leaning DTC brands (Aug 2026) —
+    {
+      name: "Tuckernuck",
+      category: "fashion",
+      desc: "DTC apparel and accessories brand known for preppy, work-to-weekend women's clothing.",
+      status: "Active on IG · creator tagged & gifted",
+      quote: "“Effortlessly polished, unmistakably you.”",
+      website: "tuckernuck.com",
+      fb: "https://www.instagram.com/tuckernuck/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Tuckernuck",
+      notes: "IG grid regularly mixes studio shots with real-customer and creator try-on content; runs an active affiliate/gifting program with fashion micro-influencers and reposts tagged customer photos."
+    },
+    {
+      name: "Hill House Home",
+      category: "fashion",
+      desc: "Women's clothing brand best known for creating and popularizing the 'Nap Dress.'",
+      status: "Active on IG · heavy creator gifting",
+      quote: "“A digital-first lifestyle brand that brings beauty and joy to every day rituals.”",
+      website: "hillhousehome.com",
+      fb: "https://www.instagram.com/hillhouse/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Hill%20House%20Home",
+      notes: "The Nap Dress became famous largely through organic and gifted creator content; still reposts real-customer wear photos alongside studio imagery and runs paid social."
+    },
+    {
+      name: "Mille",
+      category: "fashion",
+      desc: "DTC women's dress and clothing label known for vintage-inspired, hand-printed silhouettes.",
+      status: "Active on IG · creator/gifted content",
+      quote: "“Crafted slowly, worn often.”",
+      website: "shopmille.com",
+      fb: "https://www.instagram.com/shopmille/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Mille%20shopmille",
+      notes: "Fast-growing indie dress brand whose feed leans heavily on real women wearing pieces rather than flat lays; known for seeding product to fashion micro-influencers."
+    },
+    {
+      name: "Rails",
+      category: "fashion",
+      desc: "California-based contemporary clothing brand known for soft flannel shirts, dresses and denim.",
+      status: "Active on IG · influencer collabs",
+      quote: "“Timeless, Californian-styled pieces for every occasion.”",
+      website: "rails.com",
+      fb: "https://www.instagram.com/rails/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Rails%20clothing",
+      notes: "Long history of visible influencer partnerships and a feed that includes real-person styling content, not solely studio photography."
+    },
+    {
+      name: "Marine Layer",
+      category: "fashion",
+      desc: "San Francisco-based apparel brand selling soft, casual basics and loungewear.",
+      status: "Active on IG · customer/creator UGC",
+      quote: "“Oh hey, we make absurdly soft clothes that are good for people and the planet.”",
+      website: "marinelayer.com",
+      fb: "https://www.instagram.com/marinelayer/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Marine%20Layer",
+      notes: "Runs an 'ML Instagram Famous' product collection sourced directly from customer posts — an explicit signal they value and repost real-person UGC over studio imagery."
+    },
+    {
+      name: "Dagne Dover",
+      category: "fashion",
+      desc: "NYC-based DTC brand making functional, organized bags and backpacks for everyday life.",
+      status: "Active on IG · strong word-of-mouth UGC",
+      quote: "“Bags that get it.”",
+      website: "dagnedover.com",
+      fb: "https://www.instagram.com/dagnedover/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Dagne%20Dover",
+      notes: "Well-documented word-of-mouth/community marketing model built on real customer photos and reviews; strong commuter-mom following fitting a CT/NY audience."
+    },
+    {
+      name: "Senreve",
+      category: "fashion",
+      desc: "SF-based DTC brand selling structured, multifunctional leather handbags marketed to working women.",
+      status: "Active on IG · tagged customer UGC",
+      website: "senreve.com",
+      fb: "https://www.instagram.com/senreve/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Senreve",
+      notes: "Built its brand around word-of-mouth and real-customer bag photos rather than logo-driven luxury marketing; frequently reposts tagged owner content."
+    },
+    {
+      name: "Gorjana",
+      category: "fashion",
+      desc: "California-based DTC fine and fashion jewelry brand known for layering necklaces and bracelets.",
+      status: "Active on IG · gifting & creator reels",
+      quote: "“Most loved. Most layered.”",
+      website: "gorjana.com",
+      fb: "https://www.instagram.com/gorjana/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Gorjana",
+      notes: "Feed mixes brand photography with visible gifting/creator reels; actively runs influencer marketing."
+    },
+    {
+      name: "Brook & York",
+      category: "fashion",
+      desc: "DTC personalized fine jewelry brand offering initial, birthstone, and monogram pieces.",
+      status: "Running Meta ads · UGC/testimonial style",
+      quote: "“Jewelry Made Well & Made Yours.”",
+      website: "brookandyork.com",
+      fb: "https://www.instagram.com/brookandyork/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Brook%20and%20York",
+      notes: "Runs real-person, testimonial-style Meta ads rather than glossy studio jewelry ads; maintains a dedicated 'Instashop' UGC page."
+    },
+    {
+      name: "Little Words Project",
+      category: "fashion",
+      desc: "DTC beaded word-bracelet brand built around a pass-it-on kindness concept.",
+      status: "Active on IG · community/creator gifting",
+      quote: "“Choose your word, live it, then pass it on.”",
+      website: "littlewordsproject.com",
+      fb: "https://www.instagram.com/littlewordsproject/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Little%20Words%20Project",
+      notes: "Entire brand mechanic depends on customers/creators photographing and passing along bracelets, so the feed is dominated by real-person content; runs an explicit gifting program."
+    },
+    {
+      name: "Set Active",
+      category: "fashion",
+      desc: "LA-based DTC activewear and loungewear brand known for its ribbed leggings and sports bras.",
+      status: "Active on IG · heavy creator seeding",
+      quote: "“Constructed by us, activated by you.”",
+      website: "setactive.co",
+      fb: "https://www.instagram.com/setactive/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Set%20Active",
+      notes: "Grew largely via creator gifting/seeding programs; grid and reels feature real people modeling product in everyday settings."
+    },
+    {
+      name: "Year of Ours",
+      category: "fashion",
+      desc: "DTC activewear and swim brand inspired by vintage American sportswear, made in the USA.",
+      status: "Active on IG · creator gifted content",
+      quote: "“Freedom of movement, made in the USA.”",
+      website: "yearofours.com",
+      fb: "https://www.instagram.com/yearofours/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Year%20of%20Ours",
+      notes: "Founder-led activewear label with a feed that blends editorial with real-customer/creator styling; frequently referenced in creator-seeding roundups."
+    },
+    {
+      name: "Sarah Flint",
+      category: "fashion",
+      desc: "NYC-based DTC women's shoe brand selling handcrafted heels, flats, and boots.",
+      status: "Active on IG · reviewer/blogger UGC",
+      quote: "“Heritage craft, modern comfort.”",
+      website: "sarahflint.com",
+      fb: "https://www.instagram.com/sarahflint_nyc/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Sarah%20Flint",
+      notes: "Went fully DTC specifically to control storytelling around real customer fit, and amplifies a long tail of fashion-blogger 'honest review' content."
+    },
+    {
+      name: "Margaux",
+      category: "fashion",
+      desc: "NY-based DTC footwear brand making custom-fit flats, boots, and heels.",
+      status: "Active on IG · influencer-built marketing",
+      quote: "“Style and comfort belong to everyone.”",
+      website: "margauxny.com",
+      fb: "https://www.instagram.com/margauxny/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Margaux",
+      notes: "Publicly credited an in-house influencer marketing hire for driving growth; keeps a dedicated 'As Seen on Instagram' shoppable UGC page on-site."
+    },
+    {
+      name: "Kindred Bravely",
+      category: "fashion",
+      desc: "DTC maternity and nursing apparel brand selling nursing bras, loungewear, and postpartum essentials.",
+      status: "Active on IG · testimonial-style creator content",
+      quote: "“Designed by moms, for moms.”",
+      website: "kindredbravely.com",
+      fb: "https://www.instagram.com/kindredbravely/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Kindred%20Bravely",
+      notes: "Reels are dominated by real-mom, talking-to-camera testimonial content rather than studio photography; targets millennial mothers directly."
+    },
+    {
+      name: "M.M.LaFleur",
+      category: "fashion",
+      desc: "NYC-based DTC womenswear brand focused on 'power casual' workwear for professional women.",
+      status: "Active on IG · customer styling content",
+      quote: "“Live with Purpose, Dress with Ease.”",
+      website: "mmlafleur.com",
+      fb: "https://www.instagram.com/mmlafleur/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=MM%20LaFleur",
+      notes: "Targets exactly the working-professional demographic common in the CT/NY commuter corridor; features real customer styling/testimonial content alongside studio shots."
+    },
+    {
+      name: "Girlfriend Collective",
+      category: "fashion",
+      desc: "Seattle-based DTC activewear brand making leggings and sports bras from recycled materials, sized XXS-6XL.",
+      status: "Active on IG · size-diverse customer UGC",
+      quote: "“Don't make waste, wear it.”",
+      website: "girlfriend.com",
+      fb: "https://www.instagram.com/girlfriendcollective/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Girlfriend%20Collective",
+      notes: "Known for featuring real, size-diverse customers — including women over 40 — rather than exclusively professional models, a good Gen X/millennial crossover fit."
+    },
+
+    {
+      name: "Beauty From Bees",
+      category: "beauty",
+      desc: "Natural, bee-derived skincare targeting dryness and crepey skin.",
+      status: "Active · video",
+      quote: "“The reason your skin turned crepey.” — dryness &amp; dullness after 45",
+      website: "beautyfrombees.ca",
+      fb: "https://www.facebook.com/beautyfrombee/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Beauty%20From%20Bees",
+      notes: "Made in Canada, small-batch positioning — worth checking if they ship / partner with US creators."
+    },
+    {
+      name: "Humby Organics",
+      category: "beauty",
+      desc: "Hair-growth bars formulated for thinning hair in mature women.",
+      status: "Active · \"sold out 9 times\"",
+      quote: "“Stop thinning and boost hair growth — specifically made for mature women.”",
+      website: "humbyorganics.com",
+      fb: "https://www.facebook.com/thehumbyorganics/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Humby%20Organics",
+      notes: "Repeat sell-outs signal real demand and ad spend — good sign for a paying partnership."
+    },
+    {
+      name: "Halsten",
+      category: "beauty",
+      desc: "Joint & hip-pain relief positioned around menopause-related aches.",
+      status: "Active · long-form story ad",
+      quote: "“Twelve doctor appointments… and not one thought to ask the question that explained everything.”",
+      website: "tryhalsten.com",
+      fb: "https://www.facebook.com/61580488580009/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=tryhalsten.com",
+      notes: "Page name in-market is “Together Through Menopause” — direct community-style framing."
+    },
+    {
+      name: "GroundingWell",
+      category: "beauty",
+      desc: "Grounding mats & bedsheets pitched as a drug-free menopause-symptom fix.",
+      status: "Active · myth-busting video",
+      quote: "“Hot flashes, brain fog, aching joints, restless nights? Menopause relief without pills.”",
+      website: "groundingwell.com",
+      fb: "https://www.facebook.com/groundingwell/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=GroundingWell",
+      notes: "Physical product (not ingestible) — easier claims, good fit for a home-and-wellness demo video."
+    },
+    {
+      name: "Kenzie Parker Boutique",
+      category: "home",
+      desc: "\"A Clothing &amp; Home Boutique\" — apparel and decor in one small shop.",
+      status: "Active · IG-led video tour",
+      quote: "“From trendy outfits to the cutest home decor — not local? shop it all online.”",
+      website: "instagram.com/kenzieparkerboutique",
+      fb: "https://www.facebook.com/kenzieparkerboutique/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Kenzie%20Parker%20Boutique",
+      notes: "Crosses fashion + home — could work double duty across two of your content pillars in one partnership."
+    },
+    {
+      name: "Goose Creek Candles",
+      category: "home",
+      desc: "Established scented-candle brand, strong-throw fragrance positioning.",
+      status: "Active · UGC review clip",
+      quote: "“These fragrances are AMAZING. Just one candle fills my entire living room.”",
+      website: "goosecreek.com",
+      fb: "https://www.facebook.com/goosecreekco/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Goose%20Creek%20Candles",
+      notes: "Bigger, established brand — likely has a formal affiliate/creator program already."
+    },
+    {
+      name: "Fontana Candle Company",
+      category: "home",
+      desc: "Handcrafted beeswax + coconut-oil candles, ingredient-transparent.",
+      status: "Active · process video",
+      quote: "“Poured with pure beeswax, coconut oil, and soothing essential oils — a clean, crackling burn.”",
+      website: "fontanacandlecompany.com",
+      fb: "https://www.facebook.com/FontanaCandleCompany/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Fontana%20Candle%20Company",
+      notes: "Small maker aesthetic pairs well with cozy \"the house\" content."
+    },
+
+    // — Home & Garden, sourced from a broader web search (Aug 2026) —
+    {
+      name: "GreenStalk Garden",
+      category: "home",
+      desc: "Tennessee-based maker of stackable vertical planters for growing vegetables, herbs, and flowers in small spaces.",
+      status: "Active on IG · dedicated customer photo gallery",
+      quote: "“Tag us on Instagram to be featured! @greenstalkgarden”",
+      website: "greenstalkgarden.com",
+      fb: "https://www.instagram.com/greenstalkgarden/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=greenstalk%20garden",
+      notes: "Runs a standing 'Photo Gallery' page built entirely from customer submissions tagged @greenstalkgarden, plus independent gardening bloggers doing full product reviews."
+    },
+    {
+      name: "Vego Garden",
+      category: "home",
+      desc: "Houston-based manufacturer of modular metal raised garden beds and self-watering planters.",
+      status: "Active on IG · real gardener reviews and blogger UGC",
+      website: "vegogarden.com",
+      fb: "https://www.instagram.com/vego_garden/",
+      adlib: "https://www.instagram.com/p/C94--yaAGz7/",
+      notes: "Numerous home gardening bloggers have published full 'why I chose Vego' reviews with real backyard photos, and the brand actively reposts customer garden setups on IG."
+    },
+    {
+      name: "Modern Sprout",
+      category: "home",
+      desc: "Chicago-based DTC brand selling hydroponic grow kits, smart grow lights, and design-forward planters.",
+      status: "Active on IG · customer hashtag campaign + review wall",
+      quote: "“Growth is a process, and we're here for it and for you.”",
+      website: "modernsprout.com",
+      fb: "https://www.instagram.com/modsprout/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=modern%20sprout",
+      notes: "Homepage explicitly invites 'show us how you grow!' under the @modsprout hashtag and runs a 1,000+ review wall with named customers. Straddles gardening and home decor."
+    },
+    {
+      name: "Botanical Interests",
+      category: "home",
+      desc: "Colorado seed company selling non-GMO vegetable, herb, and flower seed packets with detailed growing info.",
+      status: "Active on IG · gardener community content",
+      quote: "“We blend science and nature and put that knowledge in the palm of your hand.”",
+      website: "botanicalinterests.com",
+      fb: "https://www.instagram.com/botanical_interests/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=botanical%20interests",
+      notes: "Independently run seed brand with an Instagram built around real customer gardens and growing tips rather than studio product shots."
+    },
+    {
+      name: "Dramm",
+      category: "home",
+      desc: "Wisconsin-based, family-run maker of colorful garden hoses, watering wands, and rain nozzles since 1941.",
+      status: "Active on IG · organic customer/creator content",
+      quote: "“Watering the World since 1941.”",
+      website: "rainwand.com",
+      fb: "https://www.instagram.com/drammgardening/",
+      adlib: "https://www.instagram.com/p/DLV3D8WMkuN/",
+      notes: "Legacy small manufacturer whose colorful hoses/tools are popular props with garden influencers; posts real-use shots in gardens rather than pure studio content."
+    },
+    {
+      name: "Barebones Living",
+      category: "home",
+      desc: "Salt Lake City outdoor-lifestyle brand best known for its Hori Hori garden knives and hand tools.",
+      status: "Active on IG · lifestyle/creator-driven content",
+      quote: "“The versatile garden tool you can use for a lifetime.”",
+      website: "barebonesliving.com",
+      fb: "https://www.instagram.com/barebonesliving/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=barebones%20living",
+      notes: "Aesthetic-forward brand whose Instagram leans heavily on real people using the tools outdoors rather than flat-lay product photography."
+    },
+    {
+      name: "Radius Garden",
+      category: "home",
+      desc: "Indianapolis-based maker of ergonomic garden hand tools, shovels, and cutting tools designed to reduce strain.",
+      status: "Active on IG · published customer testimonials",
+      quote: "“Why not make better garden tools that won't hurt you?”",
+      website: "radiusgarden.com",
+      fb: "https://www.instagram.com/radiusgarden/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=radius%20garden",
+      notes: "Runs an ongoing 'Our Mailbag' page of unsolicited written customer testimonials (real names/towns) alongside an active Instagram."
+    },
+    {
+      name: "Clare",
+      category: "home",
+      desc: "NYC-based DTC paint brand selling designer-curated, zero-VOC interior paint shipped directly to consumers.",
+      status: "Active on IG · known for social-first UGC strategy",
+      quote: "“We make it easy to paint a home you love.”",
+      website: "clare.com",
+      fb: "https://www.instagram.com/clarepaint/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=clare%20paint",
+      notes: "Founder has been written up specifically for using the brand's own social channels/community as marketing; IG mixes real customer room reveals with color content."
+    },
+    {
+      name: "Backdrop",
+      category: "home",
+      desc: "Los Angeles-based DTC paint and wallcovering brand offering low-VOC paint with reusable color samples.",
+      status: "Active on IG · millennial-DTC UGC style",
+      quote: "“Premium, Green Wise certified paints and wallcoverings, handcrafted in our studio in Downtown LA.”",
+      website: "backdrophome.com",
+      fb: "https://www.instagram.com/backdrop/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=backdrop%20paint",
+      notes: "Well-known millennial-founded DTC paint brand; Instagram content mixes real painted rooms and renter-friendly DIY tips."
+    },
+    {
+      name: "Tempaper",
+      category: "home",
+      desc: "New York-based designer of peel-and-stick, removable wallpaper for renters and homeowners.",
+      status: "Active on IG · dedicated customer gallery with spotlights",
+      quote: "“Show us how you #Tempaperyourspace.”",
+      website: "tempaper.com",
+      fb: "https://www.instagram.com/tempaper_designs/",
+      adlib: "https://tempaper.com/pages/gallery",
+      notes: "Runs a full 'Customer Gallery' of real installed rooms plus individual 'Customer Spotlight' features, and actively solicits IG tags."
+    },
+    {
+      name: "Wall Control",
+      category: "home",
+      desc: "US manufacturer of metal pegboard storage systems for garages, workshops, and craft rooms.",
+      status: "Active on IG · incentivized customer photo gallery",
+      quote: "“The best way to see what the Wall Control Storage System can do is through the amazing and creative ways our customers use it.”",
+      website: "wallcontrol.com",
+      fb: "https://www.instagram.com/wallcontrol/",
+      adlib: "https://www.wallcontrol.com/pegboard-gallery/",
+      notes: "Runs an explicit UGC program: customers submit real garage/workshop photos for a 10% discount and a quarterly $100 gift card drawing."
+    },
+    {
+      name: "Brightech",
+      category: "home",
+      desc: "Los Angeles-designed lighting brand making outdoor string lights, solar patio lights, and modern floor/table lamps.",
+      status: "Active on IG · real-home outdoor lighting content",
+      quote: "“Designer lighting without the designer markup.”",
+      website: "brightech.com",
+      fb: "https://www.instagram.com/wearebrightech/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=brightech",
+      notes: "Outdoor string-light line is frequently shown in real backyard/patio setups rather than studio-only shots — light gardening crossover via patio decor."
+    },
+
+    {
+      name: "Dr. Marty Pets",
+      category: "dogs",
+      desc: "Vet-founded natural pet food & health brand (dog + cat lines).",
+      status: "Active · educational video",
+      quote: "“Renowned veterinarian Dr. Marty reveals which everyday foods you should never feed your pet.”",
+      website: "drmartypets.com",
+      fb: "https://www.facebook.com/DrMartyPets/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Dr%20Marty%20Pets",
+      notes: "Ad sampled was cat-focused, but brand runs parallel dog content — a national, well-funded advertiser."
+    },
+    {
+      name: "Canis Labs",
+      category: "dogs",
+      desc: "Gut-focused calming chews for reactive / anxious dogs.",
+      status: "Active · educational hook",
+      quote: "“If your dog lunges at every dog on your walks, that's not training — that's gut dysfunction.”",
+      website: "trycanislabs.com",
+      fb: "https://www.facebook.com/61585307407787/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=trycanislabs.com",
+      notes: "Newer DTC supplement brand (\"Canine Stress Research Institute\" in-market name) — likely open to creator seeding."
+    },
+    {
+      name: "ByHeart Jewelry",
+      category: "dogs",
+      desc: "Personalized paw-print jewelry for dog moms.",
+      status: "Active · 2 creatives",
+      quote: "“My mom's ‘grandkids’ have four legs. Up to 8 hand-engraved paws for the mom whose kids have four legs.”",
+      website: "byheartjewelry.com",
+      fb: "https://www.facebook.com/ByHeartJewelry.official/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=ByHeart%20Jewelry",
+      notes: "Emotional \"dog mom\" hook is a near-exact match for the moms + dogs pillar — easy gifting-style UGC."
+    },
+
+    // — Dogs, expanded via a broader web search — she has four Labradors, so dogs are central to her content (Aug 2026) —
+    {
+      name: "West Paw",
+      category: "dogs",
+      desc: "Montana-based, B Corp manufacturer of durable, made-in-USA dog toys, treats, and feeding accessories.",
+      status: "Active on IG · dedicated UGC microsite",
+      quote: "“Guaranteed Tough, Durable Dog Toys.”",
+      website: "westpaw.com",
+      fb: "https://www.instagram.com/westpawus/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=West%20Paw",
+      notes: "Runs a standalone 'Dogs of Instagram' landing page built to surface customer dog photos, plus an active grid. Rowdies chew toys are built for heavy chewers — a strong fit for Labs."
+    },
+    {
+      name: "Ruffwear",
+      category: "dogs",
+      desc: "Bend, Oregon outdoor performance brand selling harnesses, boots, packs, and life jackets for active dogs.",
+      status: "Active on IG · ambassador/working-dog content",
+      quote: "“Every Dog Is An Explorer.”",
+      website: "ruffwear.com",
+      fb: "https://www.instagram.com/ruffwear/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Ruffwear",
+      notes: "Site's 'Our Pack' page features real ambassador/working-dog stories rather than polished studio shots. Gear is built for hiking/adventure dogs — an excellent match for active Labs."
+    },
+    {
+      name: "Big Barker",
+      category: "dogs",
+      desc: "Orthopedic dog beds engineered specifically for large and giant breed dogs, with a 10-year warranty.",
+      status: "Active on IG · Instagram-specific landing page + photo reviews",
+      quote: "“The first dog bed clinically proven to improve quality of life for big dogs.”",
+      website: "bigbarker.com",
+      fb: "https://www.instagram.com/bigbarkerusa/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Big%20Barker",
+      notes: "Maintains a dedicated Instagram landing page and a reviews page filled with customer-submitted photos of big dogs on the beds. Sized/marketed for large breeds only — one of the best Labrador fits on this list."
+    },
+    {
+      name: "Wilderdog",
+      category: "dogs",
+      desc: "Adventure-focused leashes, harnesses, and camping gear for dogs, sold direct-to-consumer.",
+      status: "Active on IG · adventure-community UGC",
+      quote: "“Everything your dog needs for adventures with his pack.”",
+      website: "wilderdog.com",
+      fb: "https://www.instagram.com/wilderdog/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Wilderdog",
+      notes: "Brand identity is built around a customer community ('Loved by 750,000+ dogs') and the grid leans heavily on real owners hiking/camping with dogs — a natural fit for four active Labs."
+    },
+    {
+      name: "Paw.com",
+      category: "dogs",
+      desc: "Direct-to-consumer brand selling orthopedic dog beds, waterproof blankets, and travel/car accessories.",
+      status: "Active on IG · heavy Meta UGC-style ad spend",
+      quote: "“Stylish and functional dog products that won't cramp your home décor.”",
+      website: "paw.com",
+      fb: "https://www.instagram.com/paworiginal/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Paw.com",
+      notes: "Known DTC performance marketer with an ongoing Meta ad presence that frequently uses testimonial/UGC-style creative. Large/orthopedic bed sizes suit big dogs."
+    },
+    {
+      name: "Kurgo",
+      category: "dogs",
+      desc: "Massachusetts brand making car seat covers, travel harnesses, carriers, and outdoor gear for dogs.",
+      status: "Active on IG · curates customer road-trip photos",
+      quote: "“Everything we do can be summed up with one word: go.”",
+      website: "kurgo.com",
+      fb: "https://www.instagram.com/kurgo/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Kurgo",
+      notes: "Blog explicitly rounds up customer road-trip Instagram shots, showing a pattern of soliciting and reposting owner content — a great fit for a multi-Lab household that road-trips."
+    },
+    {
+      name: "Fi",
+      category: "dogs",
+      desc: "GPS and AI-powered smart collar for real-time dog location and health/activity tracking.",
+      status: "Active on IG · testimonial-style Meta ads",
+      quote: "“Meet the world's smartest dog collar.”",
+      website: "fitracking.com",
+      fb: "https://www.instagram.com/fi.dogs/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Fi%20Dog%20Collar",
+      notes: "Leans on owner-to-camera testimonial ad formats about tracking active/escape-prone dogs — a strong match for four energetic Labs."
+    },
+    {
+      name: "Wolfgang Man & Beast",
+      category: "dogs",
+      desc: "Utah-based maker of collars, leashes, harnesses, and bandanas with original print designs.",
+      status: "Active on IG · lifestyle/community content",
+      quote: "“Celebrate the unique bond between dogs and their people.”",
+      website: "wolfgangusa.com",
+      fb: "https://www.instagram.com/wolfgangusa/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Wolfgang%20Man%20%26%20Beast",
+      notes: "Grid mixes branded product shots with real dogs in the field. Durable nylon gear works for larger dogs — moderate Labrador fit."
+    },
+    {
+      name: "P.L.A.Y. (Play Pet Brands)",
+      category: "dogs",
+      desc: "Certified B Corp making plush dog beds, interactive toys, and outdoor gear under several sub-brands.",
+      status: "Active on IG · product + owner content",
+      quote: "“Premium dog and cat beds, durable toys and outdoor gear, joyfully designed.”",
+      website: "playpetbrands.com",
+      fb: "https://www.instagram.com/playpetbrands/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Play%20Pet%20Brands",
+      notes: "Established mid-size pet brand with an active grid and an outdoor gear line; moderate fit for large dogs, better suited to their bigger bed sizes."
+    },
+    {
+      name: "Found My Animal",
+      category: "dogs",
+      desc: "Handmade rope leashes and collars plus matching apparel for dogs and their humans, with a rescue-focused mission.",
+      status: "Active on IG · adopter/rescue-story UGC",
+      quote: "“Quality gear with a mission of care.”",
+      website: "foundmyanimal.com",
+      fb: "https://www.instagram.com/foundmyanimal/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Found%20My%20Animal",
+      notes: "Mission-driven rescue brand selling matching human/dog apparel — a strong content angle for a creator with multiple dogs. Rope leashes are heavy-duty enough for large dogs."
+    },
+    {
+      name: "Molly Mutt",
+      category: "dogs",
+      desc: "Certified non-toxic dog bed duvets, crate covers, and car seat covers made from organic cotton.",
+      status: "Active on IG · literal customer-photo gallery page",
+      quote: "“Life is better with dogs, so that's how we design.”",
+      website: "mollymutt.com",
+      fb: "https://www.instagram.com/mollymutt/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Molly%20Mutt",
+      notes: "Site runs a dedicated 'Reviews With Photos' customer-images page built entirely from owner-submitted photos. Large duvet sizes fit big dog beds like a Lab's."
+    },
+    {
+      name: "The Foggy Dog",
+      category: "dogs",
+      desc: "San Francisco brand selling dog bandanas, collars, leashes, sweaters, and beds with seasonal prints.",
+      status: "Active on IG/TikTok · frequent real-dog content",
+      quote: "“Your Best Friend Deserves the Best.”",
+      website: "thefoggydog.com",
+      fb: "https://www.instagram.com/thefoggydog/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=The%20Foggy%20Dog",
+      notes: "Very active Instagram and TikTok built largely around real customer dogs wearing product. Fit for large dogs is about accessory sizing rather than heavy-duty gear."
+    },
+    {
+      name: "Wild One",
+      category: "dogs",
+      desc: "Design-forward harnesses, leashes, collars, and feeding accessories for dogs and cats.",
+      status: "Active on IG · influencer/lifestyle content",
+      quote: "“Better essentials for dogs and cats.”",
+      website: "wildone.com",
+      fb: "https://www.instagram.com/wildone/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Wild%20One",
+      notes: "Well-funded, design-led DTC brand with an active grid and history of gifted creator partnerships. Sizing runs XS to large, though the aesthetic skews toward smaller/apartment dogs."
+    },
+    {
+      name: "Harry Barker",
+      category: "dogs",
+      desc: "Charleston, SC eco-friendly pet brand selling home-décor-forward dog beds, bowls, toys, and apparel.",
+      status: "Active on IG · lifestyle/product content",
+      quote: "“Beautiful Pet. Beautiful Home. Beautiful Planet.”",
+      website: "harrybarker.com",
+      fb: "https://www.instagram.com/harrybarker_co/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Harry%20Barker",
+      notes: "Established sustainable pet-lifestyle brand with a steady Instagram mixing product and real-dog-in-home shots. Softer fit for large/active dogs since positioning leans home-décor over performance gear."
+    },
+    {
+      name: "Native Pet",
+      category: "dogs",
+      desc: "Austin, TX brand making vet-formulated dog supplements (powders, chews, bone broth) for joint, gut, and skin health.",
+      status: "Active on IG · testimonial-style Meta ads",
+      quote: "“High quality, tasty and effective supplements for dogs.”",
+      website: "nativepet.com",
+      fb: "https://www.instagram.com/nativepet/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Native%20Pet",
+      notes: "Recognized DTC pet-supplement advertiser that runs owner-testimonial creative regularly — a natural fit for content on joint/mobility support as four active Labs age."
+    },
+
+    {
+      name: "Alevia",
+      category: "beauty",
+      desc: "Topical relief cream for joint / body pain tied to midlife wellness.",
+      status: "Active · story-testimonial",
+      quote: "“Feel Like Yourself Again.” — “This actually worked, thank you so much.” – Emily T.",
+      website: "alevia.com",
+      fb: "https://www.facebook.com/61578481769286/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=alevia.com",
+      notes: "In-market page name is “Arthritis Support Community” — broader wellness angle than menopause-specific, but same audience."
+    },
+    {
+      name: "The Pause Life by Dr. Mary Claire Haver",
+      category: "beauty",
+      desc: "Perimenopause education, coaching & product brand from a well-known menopause physician.",
+      status: "Active · podcast + challenge ads",
+      quote: "“Most women don't realize they're in perimenopause until everything starts to feel…off. This is not random. And it's not ‘just aging.’”",
+      website: "thepauselife.com",
+      fb: "https://www.facebook.com/drmaryclaire/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=thepauselife.com",
+      notes: "Built around Dr. Mary Claire Haver's Gen X/perimenopause authority — strong credibility angle to pair with lifestyle UGC."
+    },
+    {
+      name: "Revision Skincare",
+      category: "beauty",
+      desc: "Dermatologist-recommended, clinically tested anti-aging skincare (best known for Intellishade).",
+      status: "Active · multi-creative",
+      quote: "“See the True Visible Results for yourself and find out why they're fan favorites.” — Intellishade® Original",
+      website: "revisionskincare.com",
+      fb: "https://www.facebook.com/RevisionSkincare/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Revision%20Skincare",
+      notes: "Established, pharmacy/derm-office brand rather than a viral DTC startup — general-market anti-aging positioning, not age-gated messaging."
+    },
+
+    // — Beauty & Wellness, sourced from Instagram directly rather than Meta Ad Library (Aug 2026) —
+    {
+      name: "Phosis",
+      category: "beauty",
+      source: "instagram",
+      desc: "Clinical-grade skincare formulated specifically for menopausal skin, for women 45+.",
+      status: "Active on IG · weekly posts",
+      quote: "“Phosis is the only clean, clinically proven skincare made exclusively for menopausal skin to smooth, firm and brighten.”",
+      website: "phosis.com",
+      fb: "https://www.instagram.com/phosis.skincare/",
+      adlib: "https://www.instagram.com/phosis.skincare/reel/DcKGB9KpGq4/",
+      notes: "Small, founder-led brand (organic formulator + menopause coach) — won Oprah Daily's 2025 Menopause O-Award for Best Night Cream. Posts most weeks, warm engagement, no complaint pattern."
+    },
+    {
+      name: "O Positiv — MENO",
+      category: "beauty",
+      source: "instagram",
+      desc: "Women's wellness brand; MENO is its hormone-free menopause supplement line.",
+      status: "Active on IG · posts daily",
+      quote: "“MENO Hormone-Free Menopause Vitamin” — one of four product lines (also URO, FLO, PREGGO) the brand actively posts about, with its own dedicated IG highlight.",
+      website: "opositiv.com/collections/menopause",
+      fb: "https://www.instagram.com/opositiv/",
+      adlib: "https://www.instagram.com/opositiv/reel/DcjmE9zBbFG/",
+      notes: "Posts daily — the two most recent reels sampled happened to be their URO hair line rather than MENO, so specify the menopause line when pitching. No complaint pattern in comments."
+    },
+
+    // — Website + IG Video-Verified: dual proof of actual UGC video, not just photos/text (Aug 2026) —
+    {
+      name: "Womaness",
+      category: "videoproof",
+      source: "instagram",
+      desc: "Multi-category menopause wellness & skincare brand — \"The Art of Aging Well.\"",
+      status: "Video on site + IG · creator tagged",
+      quote: "“We're saying no to just ‘accepting’ dryness during intimacy. Aging shouldn't mean settling for less or discomfort.”",
+      website: "womaness.com",
+      fb: "https://www.instagram.com/mywomaness/",
+      adlib: "https://www.instagram.com/mywomaness/reel/DcL1boWxAws/",
+      notes: "Product pages carry actual video in the gallery (not just photos), and on Instagram they posted jointly with UGC creator @suzieugc the week before this was checked — a real, verifiable creator collab. Comments across recent reels are warm, no complaint pattern."
+    },
+    {
+      name: "Stripes Beauty",
+      category: "videoproof",
+      source: "instagram",
+      desc: "Menopause-focused skin & hair care brand for women 40+, founded by a dermatologist.",
+      status: "Video on site + IG · active",
+      quote: "“Because your skin and hair go through menopause too.”",
+      website: "stripesbeauty.com",
+      fb: "https://www.instagram.com/stripes.beauty/",
+      adlib: "https://www.instagram.com/stripes.beauty/",
+      notes: "Product pages include actual video (a founder/product clip) plus a video-capable review widget with a \"Photos & Videos\" filter — real customer video, not just star ratings. Actively posting on Instagram, though reels sampled weren't creator-tagged specifically the way Womaness's was."
+    },
+
+    // — Skincare 45+, sourced from a general web search rather than an example brand (Aug 2026) —
+    // Bar: UGC video or a strong UGC presence on Instagram, PLUS a check of Meta Ad Library for active UGC-style ads.
+    {
+      name: "True Botanicals",
+      category: "skincare45",
+      source: "instagram",
+      desc: "Clean, dermatologist-tested skincare — the Chebula Active Serum line targets fine lines, firmness and dark spots.",
+      status: "Active on IG · running Meta ads",
+      quote: "“A highly potent, bioactive, multi-targeting age-defying serum—clinically proven to work at the cellular level to visibly reduce fine lines, brighten dark spots, firm, smooth, and hydrate.”",
+      website: "truebotanicals.com",
+      fb: "https://www.instagram.com/truebotanicals/",
+      adlib: "https://www.instagram.com/codyhutchison/reel/DcjK61yOUzL/",
+      notes: "313K IG followers and genuinely creator-driven — real creator reels (like this one from @codyhutchison, posted Aug 27) show up natively in their own grid, not just polished studio content. Also running 20+ active Meta ads as of Aug 2026, several video-led and testimonial-style, confirmed directly in Ad Library. The brand spans pregnancy through anti-aging, so pitch the Chebula/anti-aging line specifically for a 45+ angle rather than the Mindful Mama pregnancy line."
+    },
+    {
+      name: "Modern Age Skin",
+      category: "skincare45",
+      source: "instagram",
+      desc: "Founder-led, luxury skincare formulated specifically for perimenopausal and menopausal skin.",
+      status: "Active on IG · near-daily posts",
+      quote: "“I started this company because I struggled to find products that worked for me when I was going through perimenopause. I literally tried everything.” — Joy Kirst, Founder",
+      website: "modernageskin.com",
+      fb: "https://www.instagram.com/modernageskin/",
+      adlib: "https://www.instagram.com/modernageskin/reel/DcCcaBiiDdB/",
+      notes: "Posting almost daily (ten posts across Aug 12–25 alone) with warm, genuine comments and no complaint pattern — a small brand (under 4K followers) but clearly active and founder-engaged, not a dormant storefront. No active Meta ads found under the brand name as of Aug 2026, so the proof here is Instagram-only — worth confirming directly before pitching a paid-ad angle."
+    },
+    {
+      name: "Emepelle",
+      category: "skincare45",
+      source: "instagram",
+      desc: "Clinically-proven, non-hormonal skincare formulated specifically for estrogen-deficient, menopausal skin (MEP Technology).",
+      status: "Active on IG · creator reposts",
+      quote: "“'My skin had changed' is something so many women feel but rarely say out loud... skincare made for this exact transition exists, and it works with your skin's new normal.”",
+      website: "biopelle.com/collections/emepelle",
+      fb: "https://www.instagram.com/emepelleskincare/",
+      adlib: "https://www.instagram.com/emepelleskincare/reel/DcmEDjQjbTM/",
+      notes: "As seen in Vogue and Elle; posted the day this was checked (Aug 28), reposting a real creator's video (@heyitsirishnotiris) about her own perimenopause skin changes — genuine UGC, not just brand-shot content. Sold through Biopelle/dermatologist offices and LovelySkin rather than a pure DTC storefront, and reviews there are mixed — some irritation complaints, typical for an active serum — but show no scam or non-delivery pattern. No active Meta ads found under Emepelle or Biopelle as of Aug 2026."
+    },
+
+    // — Mother & Daughter: brands a mom and her teen can both use / co-pitch —
+    {
+      name: "Veinci",
+      category: "momdaughter",
+      desc: "Personalized matching mother-daughter jewelry (initials, hearts).",
+      status: "Active · 4.9/5 rated",
+      quote: "“Create a set of matching mother-daughter bracelets, personalized with each other's initials — a symbol of the special bond you share.”",
+      website: "veinci.com",
+      fb: "https://www.facebook.com/VeinciJewelry/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=veinci.com",
+      notes: "Built for exactly this pitch — one set, two wearers. Easy joint content with a teen daughter on camera."
+    },
+    {
+      name: "Norse Organics",
+      category: "momdaughter",
+      desc: "Wild-botanical acne skincare, marketed around the mom-shops-with-teen moment.",
+      status: "Active · 500,000+ customers",
+      quote: "“I survived the toddler years… but nothing prepared me for standing in the skincare aisle for 45 minutes while my teenager stood next to me dying of embarrassment.”",
+      website: "norseorganics.co",
+      fb: "https://www.facebook.com/meredithmasony/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=norseorganics.co",
+      notes: "Ads run through creator/mom-influencer pages already (not just a brand page) — this brand actively works with creators."
+    },
+    {
+      name: "Yes Day World",
+      category: "momdaughter",
+      desc: "Teen-focused skincare education & starter products.",
+      status: "Active · educational video",
+      quote: "“Many teens accidentally make skincare mistakes that can actually do more harm than good — here's how to avoid the biggest one.”",
+      website: "yesdayworld.com",
+      fb: "https://www.facebook.com/61582012795281/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=yesdayworld.com",
+      notes: "Newer, smaller brand built specifically for teens — a natural \"teaching my daughter skincare basics\" content angle."
+    },
+
+    // — Field Hockey: for Ceci to pitch, sourced from Meta Ad Library (Aug 2026) —
+    {
+      name: "Game Changer",
+      category: "fieldhockey",
+      desc: "Interactive LED stick-skills training board — the first of its kind built for field hockey.",
+      status: "Active · video, multi-creative",
+      quote: "“The Green Stick IQ™ Board is the first interactive LED training system for field hockey. Played by the champions.”",
+      website: "gamechangerhockey.com",
+      fb: "https://www.facebook.com/GameChangerSystem/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Green%20Stick%20IQ",
+      notes: "As on-sport as this list gets — a literal field hockey training product, small enough to be responsive to a creator DM."
+    },
+    {
+      name: "Longstreth",
+      category: "fieldhockey",
+      desc: "The major US field hockey specialty retailer — sticks, goalie gear, apparel.",
+      status: "Active · multi-creative",
+      quote: "“Trusted equipment for players ready to compete, improve and take their game to the next level.”",
+      website: "longstreth.com",
+      fb: "https://www.facebook.com/Longstreth.Sporting.Goods/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Longstreth",
+      notes: "The category's anchor retailer — every serious field hockey family already knows this name."
+    },
+    {
+      name: "Gryphon Hockey USA",
+      category: "fieldhockey",
+      desc: "Field hockey stick brand, currently advertising through Longstreth's ad account.",
+      status: "Active · single creative",
+      quote: "“Built for players who want to play faster, push further and find the gear that matches their game.”",
+      website: "gryphonhockeyusa.com",
+      fb: "https://www.facebook.com/Longstreth.Sporting.Goods/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Longstreth",
+      notes: "A stick-specific brand worth pitching separately from Longstreth if the angle is gear-focused rather than retailer-focused."
+    },
+    {
+      name: "SISU Mouthguards",
+      category: "fieldhockey",
+      desc: "Thin, custom-molded mouthguards popular across stick and contact sports.",
+      status: "Active · high-volume, multi-creative",
+      quote: "“The Original. Still the Best. SISU was the first to introduce the flat mouthguard design.”",
+      website: "sisuguard.com",
+      fb: "https://www.facebook.com/SISUMouthGuard/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=SISU%20mouthguard",
+      notes: "Running a back-to-school push right now — mouthguards are required gear, easy \"what's in her bag\" content."
+    },
+    {
+      name: "Bownet Sports",
+      category: "fieldhockey",
+      desc: "Portable training nets and goals used across youth sports, field hockey included.",
+      status: "Active · multi-creative",
+      quote: "“Play anywhere, play now with Bownet's durable and flexible portable sports netting, goals and training equipment.”",
+      website: "bownet.net",
+      fb: "https://www.facebook.com/BownetSports/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Bownet%20Sports",
+      notes: "Backyard-practice equipment — a good fit for at-home training content, not just gameday."
+    },
+    {
+      name: "SquadLocker",
+      category: "fieldhockey",
+      desc: "Team store-builder — custom spirit wear and uniforms ordered online by the whole team.",
+      status: "Active · multi-creative",
+      quote: "“Use our custom store builder to select your gear, add your logo, and share with your team.”",
+      website: "squadlocker.com",
+      fb: "https://www.facebook.com/WeLoveTeams/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=SquadLocker",
+      notes: "Already widely used by school and club teams — a realistic \"our team store\" tie-in rather than just a personal pitch."
+    },
+    {
+      name: "VarsVibe",
+      category: "fieldhockey",
+      desc: "Personalized team-spirit apparel, marketed directly to sports parents.",
+      status: "Active · multi-creative",
+      quote: "“Your player's biggest fan deserves a custom shirt too. #SportsMom #TeamSpirit”",
+      website: "varsvibe.com",
+      fb: "https://www.facebook.com/61560175607058/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=VarsVibe",
+      notes: "Built around the parent-in-the-stands angle — a natural joint post: Lizzy in gameday gear, Ceci in her uniform."
+    },
+    {
+      name: "YouthElite Labs",
+      category: "fieldhockey",
+      desc: "Pre-game performance gummies (hydration, focus, endurance) for young athletes.",
+      status: "Active · multi-creative",
+      quote: "“First half? She was everywhere. Second half? You could see it — the energy was gone... Two gummies before warmups.”",
+      website: "youthelitelabs.com",
+      fb: "https://www.facebook.com/youthelitelabs/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=youth%20athlete%20hydration",
+      notes: "Copy is written straight to the watching parent — worth double-checking the \"clean formula, no stimulants\" claim before pitching."
+    },
+    {
+      name: "NCSA College Recruiting",
+      category: "fieldhockey",
+      desc: "Athletic recruiting platform connecting high school players with college coaches.",
+      status: "Active · multi-creative",
+      quote: "“The easiest way to increase your chances of getting recruited? Create an NCSA profile.”",
+      website: "ncsasports.org",
+      fb: "https://www.facebook.com/NCSAsports/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=NCSA%20College%20Recruiting",
+      notes: "Not field-hockey-specific, but heavily used by competitive club players — a natural \"getting recruited\" angle as Ceci moves up levels."
+    },
+
+    // — Tween Study Help: for Ceci to pitch, sourced from Meta Ad Library (Aug 2026) —
+    {
+      name: "Brainly",
+      category: "studyhelp",
+      desc: "AI + real-tutor homework help app, marketed straight to parents of school-age kids.",
+      status: "Active · multi-creative",
+      quote: "“End the 7 PM homework meltdowns! With Brainly, your child has a personal AI tutor in their pocket 24/7.”",
+      website: "brainly.com",
+      fb: "https://www.facebook.com/brainlygroup/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=brainly.com",
+      notes: "\"7 PM homework meltdown\" is exactly the parent pain point Lizzy could speak to directly, with Ceci demoing the app."
+    },
+    {
+      name: "Cosmo",
+      category: "studyhelp",
+      desc: "1:1 AI-assisted tutoring, explicitly targeting middle-school writing skills.",
+      status: "Active · video",
+      quote: "“Stronger Essays in 12 Weeks — Guaranteed. Middle school writing gets tough fast... Cosmo's 1:1 tutors help your child master it all.”",
+      website: "cosmoai.com",
+      fb: "https://www.facebook.com/cosmo1on1tutoring/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Cosmo%20Smart%20AI%20Real%20Teachers",
+      notes: "One of the few brands actually naming \"middle school\" in its ad copy, rather than skewing SAT/high-school like most tutoring ads right now."
+    },
+    {
+      name: "IXL",
+      category: "studyhelp",
+      desc: "K-12 subscription learning platform covering math, reading, and more.",
+      status: "Active · high-volume, multi-creative",
+      quote: "“Do YOUR kids use IXL? Get the learning app families around the country are raving about.”",
+      website: "ixl.com",
+      fb: "https://www.facebook.com/IXL/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=IXL%20Learning",
+      notes: "Ads are explicitly mom-directed (\"Psst, Moms…\") — a natural fit for a joint mother-daughter review."
+    },
+    {
+      name: "Quizlet",
+      category: "studyhelp",
+      desc: "Flashcard and study-set app — students' go-to self-quizzing tool.",
+      status: "Active · high-volume, multi-creative",
+      quote: "“Turn Bad Grades Into A's. Start fast, track your progress, and master your semester in bite-sized bursts.”",
+      website: "quizlet.com",
+      fb: "https://www.facebook.com/quizlet/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=Quizlet",
+      notes: "Skews slightly older in its ad language (\"semester,\" \"exams\"), but tweens moving into middle-school classes already use it heavily."
+    },
+    {
+      name: "NeuroKids",
+      category: "studyhelp",
+      desc: "Screen-free printable brain-training activities for focus, memory & attention.",
+      status: "Active · multi-creative",
+      quote: "“Parents are replacing screen time with this... printable brain-training activities designed to support focus, memory, logic, attention.”",
+      website: "thewellnessie.com/products/neurokidsen",
+      fb: "https://www.facebook.com/neurokidss/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&country=US&q=NeuroKids",
+      notes: "Not an app — a physical/printable product, which makes for easier honest UGC (\"we tried this for homework focus\") than an app trial."
+    },
+
+    // — Amazon UGC Sellers, sourced from a web search — matches her Amazon storefront/influencer skillset (Aug 2026) —
+    {
+      name: "Solawave",
+      category: "amazonugc",
+      desc: "Sells an FDA-cleared 4-in-1 red light therapy skincare wand plus serums for face and neck.",
+      status: "Strong Amazon UGC · dozens of Amazon Live videos, tens of thousands of reviews",
+      website: "solawave.co",
+      fb: "https://www.amazon.com/Solawave-Anti-Aging-Galvanic-Microcurrent-Reduction/dp/B0BZ1488WR",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Solawave",
+      notes: "Amazon Live is full of independent 'honest review' videos on the wand, and the flagship listing carries a very high review volume with heavy customer-photo activity."
+    },
+    {
+      name: "Kitsch",
+      category: "amazonugc",
+      desc: "Sells hair accessories (scrunchies, clips), silk pillowcases, and haircare tools.",
+      status: "Strong Amazon UGC · high-volume reviews + multiple Amazon Live creator videos",
+      website: "mykitsch.com",
+      fb: "https://www.amazon.com/product-reviews/B0799T5SRB?reviewerType=all_reviews",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Kitsch",
+      notes: "Multiple distinct 'Watch on Amazon Live' creator videos found for scrunchies, hair towels, and microfiber products; the scrunchie listing has a large, established review base."
+    },
+    {
+      name: "Momcozy",
+      category: "amazonugc",
+      desc: "Sells hands-free pumping bras, wearable breast pumps, and maternity/nursing gear.",
+      status: "Strong Amazon UGC · Amazon Live creator videos + very high review counts",
+      website: "momcozy.com",
+      fb: "https://www.amazon.com/Momcozy-Seamless-Pumping-CozyFitClasp-Supportive/dp/B0CSMJGVKJ",
+      adlib: "https://www.amazon.com/stores/Momcozy/page/7D95654C-1FE5-4C51-9D57-3EA8F05D82EB",
+      notes: "Several independent Amazon Live 'honest review' videos exist across the pumping/nursing bra lines, and listings show thousands of reviews from a heavily mom-creator-driven customer base."
+    },
+    {
+      name: "Vegamour",
+      category: "amazonugc",
+      desc: "Sells vegan hair and scalp serums targeting shedding and thinning hair.",
+      status: "Active Amazon storefront · Amazon Live creator videos",
+      website: "vegamour.com",
+      fb: "https://www.amazon.com/VEGAMOUR-Serum-Thicker-Visibly-Longer/dp/B08KYM3Y6T",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Vegamour",
+      notes: "GRO Hair Serum has an Amazon Live 'honest review' creator video and a well-established flagship listing; also runs heavy paid social/UGC-style creative that points to retail listings."
+    },
+    {
+      name: "Bedsure",
+      category: "amazonugc",
+      desc: "Sells budget-friendly bedding — comforters, sheet sets, and duvet covers.",
+      status: "Strong Amazon UGC · viral bestseller comforter, large customer review volume",
+      quote: "“It's so soft and truly is really comfortable to sleep on. It's definitely worth more than they're asking for.”",
+      website: "bedsurehome.com",
+      fb: "https://www.amazon.com/Bedsure-Comforter-Prewashed-Lightweight-Pillowcases/dp/B0CGLPC42G",
+      adlib: "https://www.amazon.com/stores/BEDSURE/page/5B3AE9D2-9E3B-4C0B-B065-951AF44BFD5A",
+      notes: "Independent press (Apartment Therapy, TODAY) has repeatedly covered this as a 'hyped Amazon find'; the comforter set listing shows sustained high review volume typical of heavy creator-driven traffic."
+    },
+    {
+      name: "Rael",
+      category: "amazonugc",
+      desc: "Sells organic cotton period pads, period underwear, and K-beauty-inspired skincare.",
+      status: "Active Amazon storefront · multiple Amazon Live creator reviews",
+      website: "getrael.com",
+      fb: "https://www.amazon.com/Rael-Organic-Cotton-Overnight-Underwear/dp/B0B834SHYC",
+      adlib: "https://www.amazon.com/stores/Rael/PERIODCARE/page/7AA9296A-7600-4165-9C67-EC5C0656F994",
+      notes: "Several 'honest, long-term user' Amazon Live videos exist across pads, underwear, and tampons; runs a dedicated Amazon storefront split by category."
+    },
+    {
+      name: "Bala",
+      category: "amazonugc",
+      desc: "Sells design-forward wearable fitness weights (Bala Bangles) and home workout accessories.",
+      status: "Strong Amazon UGC · 8+ distinct Amazon Live creator review videos",
+      website: "shopbala.com",
+      fb: "https://www.amazon.com/stores/Bala/page/8928FDB1-2F9B-4EB3-97CE-35F472D98F7A",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Bala%20Bangles",
+      notes: "Unusually high count of unique creator-made 'honest review' Amazon Live videos on the Bala Bangles listing, plus a branded Amazon storefront."
+    },
+    {
+      name: "Blissy",
+      category: "amazonugc",
+      desc: "Sells 100% mulberry silk pillowcases marketed for hair and skin benefits.",
+      status: "Active Amazon UGC · multiple Amazon Live 'honest review' videos",
+      website: "blissy.com",
+      fb: "https://www.amazon.com/Blissy-Silk-Pillowcase-Mulberry-High-Grade/dp/B0BBSSRNHM",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Blissy",
+      notes: "Several Amazon Live videos are explicitly tagged '#sponsored' honest reviews, showing the brand actively compensates creators for Amazon-hosted video content."
+    },
+    {
+      name: "Renpho",
+      category: "amazonugc",
+      desc: "Sells wellness tech — massage guns, smart scales, and eye/back massagers.",
+      status: "Strong Amazon UGC · large review base + numerous Amazon Live videos",
+      website: "renpho.com",
+      fb: "https://www.amazon.com/stores/RENPHO/page/5EE7FFE1-4E25-4A2C-9E4D-F1265E77FBF5",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Renpho",
+      notes: "Massage gun listings carry very high review counts and multiple independent Amazon Live comparison/review videos."
+    },
+    {
+      name: "LMNT",
+      category: "amazonugc",
+      desc: "Sells zero-sugar electrolyte drink mix packets in multiple flavors.",
+      status: "Active Amazon storefront · 10+ distinct Amazon Live creator videos",
+      website: "drinklmnt.com",
+      fb: "https://www.amazon.com/stores/DrinkLMNT/page/33714DB5-2F7E-4FA6-AAC6-E54EA1DB8EA9",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=LMNT",
+      notes: "Unusually high number of separate creator-made 'honest review' Amazon Live videos across flavors, plus a dedicated Amazon storefront."
+    },
+    {
+      name: "Truly Beauty",
+      category: "amazonugc",
+      desc: "Sells fruit-scented body care and skincare, including a popular ingrown-hair serum.",
+      status: "Active Amazon storefront · Amazon Live creator review present",
+      website: "trulybeauty.com",
+      fb: "https://www.amazon.com/stores/Truly/page/06F2F341-1DD9-41E6-9693-AC3D3544926A",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Truly%20Beauty",
+      notes: "Runs a full multi-category Amazon storefront and has creator-made Amazon Live review content; well known for social/UGC-first marketing that funnels into retail listings."
+    },
+    {
+      name: "Native Pet Amazon Storefront",
+      category: "amazonugc",
+      desc: "Sells dog supplements — daily multivitamins, probiotics, and skin/coat chews (also listed under Dogs for its Instagram/Meta ad presence).",
+      status: "Strong Amazon UGC · multiple Amazon Live creator videos across products",
+      website: "nativepet.com",
+      fb: "https://www.amazon.com/stores/NativePet/page/FD5C1BDC-AD71-43CC-954B-4F47BC17FC3F",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Native%20Pet",
+      notes: "Several distinct 'honest review & demo' Amazon Live videos on its Daily supplement and probiotic listings, plus category-split Amazon storefronts — a good adjacent pitch angle to the Dogs entry above."
+    },
+
+    // — LTK UGC Brands, sourced from a web search — matches her LTK selling skillset; each has both LTK creator activity AND active UGC-style Meta ads (Aug 2026) —
+    {
+      name: "Pink Lily",
+      category: "ltkugc",
+      desc: "A women's fashion brand selling on-trend dresses, apparel, and accessories direct-to-consumer.",
+      status: "Active on LTK · running Meta ads",
+      website: "pinklily.com",
+      fb: "https://www.shopltk.com/explore/danielle.eilers/posts/c26fce69-3e4e-11ec-95c4-0242ac110003",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Pink%20Lily",
+      notes: "Dozens of LTK creator posts are tagged explicitly as a Pink Lily collab, indicating a formal branded program with LTK creators rather than organic linking."
+    },
+    {
+      name: "Cupshe",
+      category: "ltkugc",
+      desc: "A direct-to-consumer swimwear and resortwear brand.",
+      status: "Active on LTK · running Meta ads",
+      website: "cupshe.com",
+      fb: "https://www.shopltk.com/explore/StyledandTaylered/posts/5c5befa8-dff1-11ef-b755-0242ac11002a",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Cupshe",
+      notes: "Extremely high volume of LTK creator posts for its swim styles, confirming heavy creator/affiliate usage alongside an active, evolving Meta creative strategy."
+    },
+    {
+      name: "amika",
+      category: "ltkugc",
+      desc: "A professional-grade haircare brand selling shampoo, masks, and styling tools.",
+      status: "Active on LTK · running Meta ads",
+      website: "loveamika.com",
+      fb: "https://www.shopltk.com/explore/Jennifer_Lynch/posts/eec9f3d1-9dc4-11ed-ab1c-0242ac110003",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=amika",
+      notes: "Soulfood mask/oil and refillable-bottle products are consistently featured in LTK creator posts, backed by documented influencer-driven paid social case studies."
+    },
+    {
+      name: "K18",
+      category: "ltkugc",
+      desc: "A molecular hair-repair brand known for its leave-in mask and biomimetic hair science line.",
+      status: "Active on LTK · running Meta ads",
+      website: "k18hair.com",
+      fb: "https://www.shopltk.com/explore/kanequilos/posts/6199f325-e081-11ed-a8c1-0242ac110004",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=K18%20Hair",
+      notes: "The leave-in molecular repair mask and hair oil are frequently linked by LTK creators, backed by creator-testimonial-driven ad campaigns."
+    },
+    {
+      name: "Cozy Earth",
+      category: "ltkugc",
+      desc: "A direct-to-consumer bedding and loungewear brand built around bamboo-viscose sheets.",
+      status: "Active on LTK · running Meta ads",
+      website: "cozyearth.com",
+      fb: "https://www.shopltk.com/explore/Bree_Honeycutt/posts/970c228e-ef3b-11ef-a93d-0242ac110006",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Cozy%20Earth",
+      notes: "Sheet sets, comforters, and loungewear show up across many LTK creator posts; a published case study documents its Facebook ad creative and ROAS gains."
+    },
+    {
+      name: "BÉIS",
+      category: "ltkugc",
+      desc: "Shay Mitchell's travel brand selling luggage, totes, and travel accessories.",
+      status: "Active on LTK · running Meta/Instagram ads",
+      website: "beistravel.com",
+      fb: "https://www.shopltk.com/explore/teresalaucar/posts/aee78559-0a6a-11f0-85ad-0242ac110005",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=B%C3%A9is",
+      notes: "The Ultimate Travel Duffle and other pieces are widely featured across LTK creator posts; reporting notes ~80% of ecommerce traffic driven through Instagram/UGC-style paid social."
+    },
+    {
+      name: "Vegamour (LTK)",
+      category: "ltkugc",
+      desc: "A vegan hair, lash, and brow growth serum and supplement brand (also listed under Amazon UGC Sellers for its Amazon Live presence).",
+      status: "Active on LTK · running Meta ads",
+      quote: "“Thicker Looking Hair In As Soon As 90 Days.”",
+      website: "vegamour.com",
+      fb: "https://www.shopltk.com/explore/anunblurredlady/posts/f15c2092-adae-11ed-9984-0242ac110004",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Vegamour",
+      notes: "GRO serum, shampoo, and biotin gummies are repeatedly linked by LTK creators; Meta's own published case study confirms an active, ongoing ad program — a strong cross-channel brand for both Amazon and LTK content."
+    },
+    {
+      name: "Dagne Dover (LTK)",
+      category: "ltkugc",
+      desc: "A functional handbag and accessories brand known for its neoprene totes and organizers (also listed under Fashion for its Instagram presence).",
+      status: "Active on LTK · running Meta ads",
+      website: "dagnedover.com",
+      fb: "https://www.shopltk.com/explore/StyleWithSerena/posts/0aa595c7-21f3-11f0-a053-0242ac110020",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Dagne%20Dover",
+      notes: "The Ace Fanny Pack, Dakota Backpack, and other core bags appear across many LTK creator posts; documented content/affiliate creator program plus active Facebook ad presence."
+    },
+    {
+      name: "Our Place",
+      category: "ltkugc",
+      desc: "A direct-to-consumer cookware brand best known for the Always Pan.",
+      status: "Active on LTK · running Meta ads",
+      website: "fromourplace.com",
+      fb: "https://www.shopltk.com/explore/whatsmitafound/posts/692f20e6-145e-11ef-b9d1-0242ac110022",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Our%20Place",
+      notes: "The Always Pan and Dream Cooker are featured in numerous LTK creator posts; multiple published case studies document a UGC-and-influencer-driven Meta advertising strategy."
+    },
+    {
+      name: "TULA Skincare",
+      category: "ltkugc",
+      desc: "A probiotic-powered skincare brand selling cleansers, serums, and moisturizers.",
+      status: "Active on LTK · running Meta ads",
+      quote: "“Clean, Probiotic-Powered Skincare.”",
+      website: "tula.com",
+      fb: "https://www.shopltk.com/explore/SimplySalesWithSarah/posts/aa9d8b6b-783f-11ef-a698-0242ac110007",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=TULA%20Skincare",
+      notes: "Greatest Hits sets and core skincare products are consistently linked by LTK creators; a published case study documents its ongoing Meta ad creative and management program."
+    },
+    {
+      name: "Parade",
+      category: "ltkugc",
+      desc: "A direct-to-consumer underwear and intimates brand known for its size-inclusive, colorful basics.",
+      status: "Active on LTK · running Meta ads",
+      website: "yourparade.com",
+      fb: "https://www.shopltk.com/explore/veganbeautyaddict/posts/9af0a390-c71c-11ed-b985-0242ac110004",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Parade",
+      notes: "Bralette and thong sets appear frequently across LTK creator posts; documented use of variable video ads and a nano-influencer/UGC-style creator marketing strategy."
+    },
+
+    // — Christmas Specialty, sourced from a web search — she celebrates Christmas in a big way (Aug 2026) —
+    {
+      name: "King of Christmas",
+      category: "christmas",
+      desc: "California-based specialty retailer of realistic artificial Christmas trees, wreaths, and holiday décor.",
+      status: "Active on IG · site runs a dedicated customer-photo UGC gallery",
+      quote: "“Handcrafted to spark traditions that last for decades.”",
+      website: "kingofchristmas.com",
+      fb: "https://www.instagram.com/kingofchristmas/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=US&q=King%20of%20Christmas",
+      notes: "Homepage features a 'Join Our Family' section pulling in real customer photos of decorated trees, plus a verified-buyer review section — built-in UGC social proof rather than studio-only photography."
+    },
+    {
+      name: "Little Sleepies",
+      category: "christmas",
+      desc: "Bamboo sleepwear and daywear brand known for family matching Christmas pajama sets.",
+      status: "Active on IG · creator-partner hashtag live for 2025 holiday season",
+      quote: "“#littlesleepiespartner Who's ready for Christmas?!”",
+      website: "littlesleepies.com",
+      fb: "https://www.instagram.com/littlesleepies/",
+      adlib: "https://www.instagram.com/reel/DRz4b6ekepQ/",
+      notes: "A creator-tagged reel using the brand's own #littlesleepiespartner hashtag promotes family Christmas PJs; the brand is documented as having built a large fan/influencer-driven UGC community as its core marketing."
+    },
+    {
+      name: "Roller Rabbit",
+      category: "christmas",
+      desc: "New York-based boutique apparel brand selling bold-print matching family pajamas, including holiday sets.",
+      status: "Active on IG · customer-tagged pajama content (prior season)",
+      website: "rollerrabbit.com",
+      fb: "https://www.instagram.com/rollerrabbitofficial/",
+      adlib: "https://www.instagram.com/popular/roller-rabbit-christmas-pajamas/reels/Cm-Go-EJTEb/",
+      notes: "A customer-tagged reel captioned 'We love our Roller Rabbit pajamas' features real family holiday sleepwear; this evidence is from a prior season — no confirmed live 2026 holiday ads yet, consistent with late-August timing."
+    },
+    {
+      name: "Printfresh",
+      category: "christmas",
+      desc: "Size-inclusive pajama brand with a dedicated matching family Christmas pajama collection.",
+      status: "Active on IG · testimonial-style holiday PJ reels",
+      quote: "“I promise you'll wear these again.”",
+      website: "printfresh.com",
+      fb: "https://www.instagram.com/printfresh/",
+      adlib: "https://www.instagram.com/printfresh/reel/C53yCNIoiwC/",
+      notes: "Runs a standing 'Matching Holiday Pajamas' guide and a dedicated holiday collection; grid mixes real-person, testimonial-toned captions rather than just studio product shots."
+    },
+    {
+      name: "Old World Christmas",
+      category: "christmas",
+      desc: "Spokane, WA maker of hand-painted, hand-blown glass Christmas ornaments, DTC since its founding in 1979.",
+      status: "Active on IG · legacy artisan ornament brand with DTC checkout",
+      quote: "“Hand-Crafted since 1979 — create cherished memories with glass ornaments made by skilled artisans.”",
+      website: "oldworldchristmas.com",
+      fb: "https://www.instagram.com/oldworldchristmas/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=US&q=Old%20World%20Christmas",
+      notes: "Runs annual 'Christmas in July' reveal countdown campaigns on social well ahead of the holiday season, showing active, ongoing content — worth confirming current-season UGC/ad style closer to Q4."
+    },
+    {
+      name: "Vermont Christmas Company",
+      category: "christmas",
+      desc: "Vermont-based specialty retailer of advent calendars, Christmas puzzles, and holiday greeting cards.",
+      status: "Active on IG · family-run New England specialty brand",
+      website: "vermontchristmasco.com",
+      fb: "https://www.instagram.com/vermontchristmascompany/",
+      adlib: "https://www.instagram.com/vermontchristmascompany/",
+      notes: "Site and Instagram are both active and product-focused; no specific tagged customer UGC post located in this pass, so evidence here leans on category fit plus active presence — worth a closer look before pitching."
+    },
+    {
+      name: "Marleylilly",
+      category: "christmas",
+      desc: "South Carolina-based monogram/personalization brand with dedicated Christmas gift and stocking-stuffer collections.",
+      status: "Active on IG · large organic gifting/monogram UGC community",
+      quote: "“There's something special about a monogram.”",
+      website: "marleylilly.com",
+      fb: "https://www.instagram.com/marleylilly/",
+      adlib: "https://www.instagram.com/p/DIU63lzBvS9/",
+      notes: "Has a well-known history of seeding product to lifestyle creators and reposting real customer photos of monogrammed items."
+    },
+    {
+      name: "Compartés",
+      category: "christmas",
+      desc: "Los Angeles chocolatier (since 1950) selling holiday chocolate gift boxes, stocking stuffers, and a chocolate advent calendar.",
+      status: "Active on IG · holiday chocolate + advent calendar line",
+      quote: "“The world's best chocolate, handmade in Los Angeles since 1950.”",
+      website: "compartes.com",
+      fb: "https://www.instagram.com/compartes/",
+      adlib: "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=US&q=Compartes",
+      notes: "Runs dedicated Advent Calendar and Holiday collections; gifting-format chocolate brands like this typically drive frequent unboxing-style UGC — check Ad Library closer to season for live ads."
+    },
+    {
+      name: "Bakery Bling",
+      category: "christmas",
+      desc: "Designer gingerbread house and holiday cookie decorating kit company, also sold via Costco but DTC-first.",
+      status: "Active on IG · runs a formal UGC Creator Application program",
+      quote: "“Tag Us To Get Featured!”",
+      website: "bakerybling.com",
+      fb: "https://www.instagram.com/bakerybling/",
+      adlib: "https://www.instagram.com/bakerybling/",
+      notes: "Site footer includes an explicit 'UGC Creator Application' link plus a 'Tag Us To Get Featured' CTA — direct evidence they solicit and repost creator content; kit format is inherently built for family decorating videos."
+    },
+    {
+      name: "Hester & Cook",
+      category: "christmas",
+      desc: "Nashville-based entertaining brand selling illustrated paper placemats, napkins, and table runners for holiday gatherings.",
+      status: "Active on IG · holiday tablescape content",
+      quote: "“We exist to serve by elevating experiences that create meaningful connection.”",
+      website: "hesterandcook.com",
+      fb: "https://www.instagram.com/hesterandcook/",
+      adlib: "https://www.instagram.com/hesterandcook/",
+      notes: "Runs a dedicated Christmas Collection and maintains a second wholesale IG account, indicating active retailer/customer content sharing around holiday entertaining."
+    },
+    {
+      name: "FreshCut Paper",
+      category: "christmas",
+      desc: "Maker of pop-up paper Christmas trees and holiday wreaths that ship flat and assemble into 3D décor.",
+      status: "Active on IG · novelty product format naturally suited to UGC",
+      quote: "“Endless smiles guaranteed.”",
+      website: "freshcutpaper.com",
+      fb: "https://www.instagram.com/freshcutpaperofficial/",
+      adlib: "https://www.instagram.com/freshcutpaperofficial/",
+      notes: "Confirmed real, working DTC site selling pop-up Christmas trees and holiday wreaths; no specific tagged customer post located in this pass, so this leans on strong category/format fit plus an active official account."
+    },
+    {
+      name: "Ornament Shop",
+      category: "christmas",
+      desc: "Veteran-owned personalized Christmas ornament company offering custom names, photos, and dates on keepsake ornaments.",
+      status: "Active on IG · 40+ year DTC brand, 1,700+ site reviews",
+      quote: "“Create a keepsake that feels personal.”",
+      website: "ornamentshop.com",
+      fb: "https://www.instagram.com/ornamentshop_com/",
+      adlib: "https://www.instagram.com/ornamentshop_com/",
+      notes: "Site shows 1,700+ customer reviews; personalized-ornament unboxing/tree-hanging is a classic family UGC moment, though a specific tagged post wasn't pulled in this light pass."
+    },
+
+    // — Local: CT / NY, fashion houses actually running Meta ads, sourced from a web search rather than Google Maps (Aug 2026) —
+    {
+      name: "West2Westport",
+      category: "local",
+      desc: "Westport, CT — independent women's boutique carrying designer denim, statement jackets, and West Coast-inspired everyday pieces.",
+      status: "Active · running Meta ads",
+      website: "west2westport.com",
+      fb: "https://www.facebook.com/West2Westport",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=West2Westport",
+      notes: "3 active ads found, including a fall-arrivals spot naming a leopard cardigan and cashmere turtleneck now in store — good hook for an in-person new-arrivals pitch."
+    },
+    {
+      name: "Mitchells",
+      category: "local",
+      desc: "Westport, CT — family-owned since 1958, a multi-brand luxury clothier carrying Brunello Cucinelli, Zegna, Akris, Peter Millar, and more.",
+      status: "Active · running Meta ads",
+      website: "mitchells.com",
+      fb: "https://www.facebook.com/mitchellstores",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Mitchells",
+      notes: "11 active ads running, heavily promoting new-season designer collections — a legacy independent (not a chain) despite multiple locations, worth a judgment call when pitching."
+    },
+    {
+      name: "Elegant Ridgefield",
+      category: "local",
+      desc: "Ridgefield, CT — women's and men's clothing boutique on Grove Street specializing in cocktail, evening, and destination wear.",
+      status: "Active · running Meta ads",
+      website: "elegantridgefield.com",
+      fb: "https://www.facebook.com/ElegantRidgefield",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Elegant%20Ridgefield",
+      notes: "Two active ads confirmed: one for the main store (92 Grove St) and one for a second specialty location, 'The Vault' (23 Governor St) — worth asking about both when pitching."
+    },
+    {
+      name: "Brand Nu Apparel",
+      category: "local",
+      desc: "Ridgefield, CT — men's and women's apparel shop that recently opened on Main Street in downtown Ridgefield.",
+      status: "Active · running Meta ads",
+      fb: "https://www.facebook.com/Brandnuapparel",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Brand%20Nu%20Apparel",
+      notes: "Active ad reads 'Brand Nu Apparel is now open at 446 Main Street' — a brand-new storefront likely eager for local buzz, an easy in-person opener."
+    },
+    {
+      name: "Herpret by Harpreet Virk",
+      category: "local",
+      desc: "New Canaan, CT — South Asian bridal couture boutique and design studio specializing in handcrafted lehengas and bridal wear.",
+      status: "Active · running Meta ads",
+      fb: "https://www.facebook.com/herpretbyharpreetvirk",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=Herpret%20by%20Harpreet%20Virk",
+      notes: "2 active video ads for lehenga collections (62K+ IG followers). Appointments recommended given limited bridal trunk-show weekends — a heads-up message before visiting will land better than a cold walk-in."
+    },
+    {
+      name: "A Little Something White Bridal Couture",
+      category: "local",
+      desc: "Darien, CT — bridal boutique carrying 200+ gowns, voted one of Brides Magazine's Top 50 Bridal Salons.",
+      status: "Active · running Meta ads",
+      website: "alittlesomethingwhite.com",
+      fb: "https://www.facebook.com/ALittleSomethingWhiteBridalCouture",
+      adlib: "https://www.facebook.com/ads/library/?active_status=active&ad_type=all&country=US&q=A%20Little%20Something%20White%20Bridal%20Couture",
+      notes: "Unusually heavy ad spend for a small shop — 4+ concurrent active ads plus a live trunk-show promo — a strong budget signal. Appointments recommended given the bridal focus."
+    },
+
+    // — Local: CT / NY, sourced from Google Maps (Aug 2026) —
+    {
+      kind: "local", name: "Adam Broderick Salon", category: "local", town: "Ridgefield, CT",
+      desc: "Hair salon & spa", rating: 4.4, reviews: 286,
+      address: "89 Danbury Rd, Ridgefield, CT 06877",
+      website: "adambroderick.com",
+      maps: "https://www.google.com/maps/search/Adam+Broderick+Salon+Ridgefield+CT",
+      notes: "Personal rec — Ceci gets her hair done here, and it's already on the Bento list."
+    },
+    {
+      kind: "local", name: "Consign Envy", category: "local", town: "Ridgefield, CT",
+      desc: "Consignment shop, women-owned", rating: 4.7, reviews: 25,
+      address: "27 Catoonah St, Ridgefield, CT 06877",
+      website: "consignenvy.com",
+      maps: "https://www.google.com/maps/search/Consign+Envy+Ridgefield+CT",
+      notes: "Personal favorite — they already know Lizzy makes content. Warm intro likely."
+    },
+    {
+      kind: "local", name: "Treated Groom Spa", category: "local", town: "Ridgefield, CT",
+      desc: "Pet groomer", rating: 5.0, reviews: 72,
+      address: "15 Catoonah St, Ridgefield, CT 06877",
+      maps: "https://www.google.com/maps/search/Treated+Groom+Spa+Ridgefield+CT",
+      notes: "Perfect 5.0 with real volume — same street as Consign Envy, easy content day pairing."
+    },
+    {
+      kind: "local", name: "Life Long Dental Care", category: "local", town: "Ridgefield, CT",
+      desc: "Dentist", rating: 4.7, reviews: 325,
+      address: "158 Danbury Rd, Ridgefield, CT 06877",
+      maps: "https://www.google.com/maps/search/Life+Long+Dental+Care+Ridgefield+CT",
+      notes: "Highest-review general/family dentist in town — good fit for a smile/whitening content angle."
+    },
+    {
+      kind: "local", name: "Bark Park Dog Park", category: "local", town: "Ridgefield, CT",
+      desc: "Dog park", rating: 4.6, reviews: 135,
+      address: "58 Prospect Ridge, Ridgefield, CT",
+      maps: "https://www.google.com/maps/search/Bark+Park+Dog+Park+Ridgefield+CT",
+      notes: "Not a brand to pitch, but a reliable dog-content location scout for the Ridgefield loop."
+    },
+    {
+      kind: "local", name: "Whip Salon Wilton", category: "local", town: "Wilton, CT",
+      desc: "Hair salon", rating: 4.9, reviews: 506,
+      address: "23 Danbury Rd, Wilton, CT 06897",
+      maps: "https://www.google.com/maps/search/Whip+Salon+Wilton+CT",
+      notes: "By far the highest-volume, highest-rated salon across all six towns — worth prioritizing."
+    },
+    {
+      kind: "local", name: "Weir Farm National Historical Park", category: "local", town: "Wilton, CT",
+      desc: "Park / historic site (National Park Service)", rating: 4.8, reviews: 478,
+      address: "735 Nod Hill Rd, Wilton, CT 06897",
+      maps: "https://www.google.com/maps/search/Weir+Farm+National+Historical+Park",
+      notes: "Art-and-nature site, not a brand — a beautiful backdrop for home/lifestyle shoots."
+    },
+    {
+      kind: "local", name: "Salon G", category: "local", town: "New Canaan, CT",
+      desc: "Hair salon", rating: 5.0, reviews: 102,
+      address: "64 Main St, New Canaan, CT 06840",
+      maps: "https://www.google.com/maps/search/Salon+G+New+Canaan+CT",
+      notes: "Perfect rating with the deepest review base of New Canaan's salons."
+    },
+    {
+      kind: "local", name: "Waveny Park", category: "local", town: "New Canaan, CT",
+      desc: "Park (athletics, trails & arts)", rating: 4.8, reviews: 1049,
+      address: "677 South Ave, New Canaan, CT 06840",
+      maps: "https://www.google.com/maps/search/Waveny+Park+New+Canaan+CT",
+      notes: "Crosses the \"several thousand reviews\" bar most cleanly of any local spot on this list."
+    },
+    {
+      kind: "local", name: "Paul D. Harbottle, DDS", category: "local", town: "New Canaan, CT",
+      desc: "Dentist", rating: 5.0, reviews: 263,
+      address: "162 East Ave, New Canaan, CT 06840",
+      maps: "https://www.google.com/maps/search/Paul+D.+Harbottle+DDS+New+Canaan+CT",
+      notes: "Top-rated dentist in New Canaan by review volume."
+    },
+    {
+      kind: "local", name: "Bedford Dental Care", category: "local", town: "Bedford, NY",
+      desc: "Dentist", rating: 5.0, reviews: 165,
+      address: "64 Griffin Ave, Bedford, NY 10506",
+      maps: "https://www.google.com/maps/search/Bedford+Dental+Care+NY",
+      notes: "Perfect rating, strongest review count of the Bedford-area dental options."
+    },
+    {
+      kind: "local", name: "Little Bedford Groomers", category: "local", town: "Bedford, NY",
+      desc: "Pet groomer", rating: 5.0, reviews: 46,
+      address: "410 Old Post Rd, Bedford, NY 10506",
+      maps: "https://www.google.com/maps/search/Little+Bedford+Groomers",
+      notes: "Best-reviewed groomer in Bedford — small shop, big reputation."
+    },
+    {
+      kind: "local", name: "Vintage", category: "local", town: "Bedford, NY",
+      desc: "Dress / clothing boutique", rating: 4.8, reviews: 38,
+      address: "297 Bedford Rd, Bedford, NY 10506",
+      maps: "https://www.google.com/maps/search/Vintage+Bedford+NY+dress+store",
+      notes: "Small but well-loved boutique — worth a look alongside Consign Envy for a fashion segment."
+    },
+    {
+      kind: "local", name: "Bedford Hills Memorial Park", category: "local", town: "Bedford, NY",
+      desc: "Park (fields, pool, playground)", rating: 4.6, reviews: 274,
+      address: "60 Haines Rd, Bedford Hills, NY 10507",
+      maps: "https://www.google.com/maps/search/Bedford+Hills+Memorial+Park",
+      notes: "Family-friendly location scout — pool, fishing pond and fields in one spot."
+    },
+    {
+      kind: "local", name: "Tease Hair & Beauty Bar", category: "local", town: "Katonah, NY",
+      desc: "Hair salon", rating: 5.0, reviews: 55,
+      address: "120 Bedford Rd, Katonah, NY 10536",
+      maps: "https://www.google.com/maps/search/Tease+Hair+%26+Beauty+Bar+Katonah+NY",
+      notes: "Top-rated Katonah salon by review volume — couldn't confirm this is \"the Martha Stewart one\" from the tip, worth checking in person before pitching."
+    },
+    {
+      kind: "local", name: "Lasdon Public Gardens & Veterans Memorial", category: "local", town: "Katonah, NY",
+      desc: "Park / public gardens", rating: 4.7, reviews: 556,
+      address: "2610 NY-35, Katonah, NY 10536",
+      maps: "https://www.google.com/maps/search/Lasdon+Public+Gardens+Katonah+NY",
+      notes: "Formal gardens + nature preserve — strong visual location for home/seasonal content."
+    },
+    {
+      kind: "local", name: "Hair Essentials Studio", category: "local", town: "Mount Kisco, NY",
+      desc: "Hair salon", rating: 5.0, reviews: 73,
+      address: "7 Kirby Plaza, Mount Kisco, NY 10549",
+      maps: "https://www.google.com/maps/search/Hair+Essentials+Studio+Mount+Kisco+NY",
+      notes: "Perfect rating, best review base of Mount Kisco's salons."
+    },
+    {
+      kind: "local", name: "Dogtopia of Mount Kisco", category: "local", town: "Mount Kisco, NY",
+      desc: "Pet groomer & daycare", rating: 4.8, reviews: 160,
+      address: "333 N Bedford Rd, Mount Kisco, NY 10549",
+      maps: "https://www.google.com/maps/search/Dogtopia+of+Mount+Kisco",
+      notes: "National chain with a strong local rating — likely has a referral/partner program already."
+    },
+    {
+      kind: "local", name: "Leonard Park", category: "local", town: "Mount Kisco, NY",
+      desc: "Park", rating: 4.5, reviews: 369,
+      address: "25 Wallace Dr, Mount Kisco, NY 10549",
+      maps: "https://www.google.com/maps/search/Leonard+Park+Mount+Kisco+NY",
+      notes: "Mount Kisco's most-reviewed park — trails, picnic areas, open late."
+    },
+    {
+      kind: "local", name: "The Park (Grand Prix New York)", category: "local", town: "Mount Kisco, NY",
+      desc: "Family entertainment — go-karts & arcade", rating: 4.6, reviews: 88,
+      address: "333 N Bedford Rd, Mount Kisco, NY 10549",
+      maps: "https://www.google.com/maps/search/The+Park+Grand+Prix+Mount+Kisco+NY",
+      notes: "Local entertainment pick that still clears 4.5+ (its bigger go-kart neighbor, K1 Speed, sits at 4.3)."
+    }
+  ];
+
+  const CATS = {
+    beauty:      { label: "Beauty & Wellness", cls: "cat-beauty" },
+    videoproof:  { label: "Website + IG Video-Verified", cls: "cat-video" },
+    skincare45:  { label: "Skincare 45+ — Web Search", cls: "cat-search" },
+    fashion:     { label: "Fashion", cls: "cat-fashion" },
+    momdaughter: { label: "Mother & Daughter", cls: "cat-momdaughter" },
+    fieldhockey: { label: "Field Hockey", cls: "cat-fieldhockey" },
+    studyhelp:   { label: "Tween Study Help", cls: "cat-studyhelp" },
+    home:        { label: "Home & Garden", cls: "cat-home" },
+    dogs:        { label: "Dogs", cls: "cat-dogs" },
+    amazonugc:   { label: "Amazon UGC Sellers", cls: "cat-amazon" },
+    ltkugc:      { label: "LTK UGC Brands", cls: "cat-ltk" },
+    christmas:   { label: "Christmas Specialty", cls: "cat-xmas" },
+    local:       { label: "Local — CT & NY", cls: "cat-local" }
+  };
+  const ORDER = ["beauty","videoproof","skincare45","fashion","momdaughter","fieldhockey","studyhelp","home","dogs","amazonugc","ltkugc","christmas","local"];
+
+  const groupsEl = document.getElementById('groups');
+  const filtersEl = document.getElementById('filters');
+  const searchEl = document.getElementById('search');
+  const emptyEl = document.getElementById('empty');
+  const countEl = document.getElementById('stat-count');
+
+  let activeCat = 'all';
+  countEl.textContent = DATA.length;
+
+  function siteUrl(w){
+    if (/^https?:\/\//.test(w)) return w;
+    return 'https://' + w;
+  }
+
+  function starString(r){
+    const full = Math.floor(r);
+    const half = r - full >= 0.5;
+    return '★'.repeat(full) + (half ? '½' : '');
+  }
+
+  function card(b){
+    const c = CATS[b.category];
+    const site = (b.website || '').toLowerCase();
+    const searchable = `${b.name} ${b.website||''} ${b.desc} ${b.town||''}`.toLowerCase();
+
+    if (b.kind === 'local'){
+      return `
+      <article class="card" data-search="${searchable}">
+        <div class="card-top">
+          <h3 class="card-title">${b.name}</h3>
+          <span class="status rating"><span class="stars">${starString(b.rating)}</span>&nbsp;${b.rating.toFixed(1)} · ${b.reviews.toLocaleString()}</span>
+        </div>
+        <p class="card-desc">${b.desc}</p>
+        <div class="quote">${b.address}</div>
+        <div class="meta-row">
+          <span class="tag ${c.cls}">${c.label}</span>
+          <span class="tag town">${b.town}</span>
+        </div>
+        <div class="links">
+          ${b.website ? `<a href="${siteUrl(b.website)}" target="_blank" rel="noopener">↗ ${b.website}</a>` : ''}
+          <a href="${b.maps}" target="_blank" rel="noopener">Google Maps</a>
+        </div>
+        <p class="notes"><b>Why it's on here —</b> ${b.notes}</p>
+      </article>`;
+    }
+
+    const fb = b.fb || '';
+    const adlib = b.adlib || '';
+    const fbIsIG = fb.includes('instagram.com');
+    const fbIsAmazon = fb.includes('amazon.com');
+    const fbIsLTK = fb.includes('ltk.com');
+    const adlibIsAdLibrary = adlib.includes('facebook.com/ads/library');
+    const adlibIsIG = adlib.includes('instagram.com');
+    const adlibIsAmazon = adlib.includes('amazon.com');
+    const isVideoProof = b.category === 'videoproof';
+    const isSkincare45 = b.category === 'skincare45';
+    const isAmazonUGC = b.category === 'amazonugc';
+    const isLTKUGC = b.category === 'ltkugc';
+    const igBadge = isVideoProof ? 'Video-verified' : (isSkincare45 ? 'Web-Sourced' : (isAmazonUGC ? 'Amazon-Verified' : (isLTKUGC ? 'LTK-Verified' : (fbIsIG ? 'IG-verified' : ''))));
+    const fbLabel = fbIsAmazon ? 'Amazon ↗' : (fbIsLTK ? 'LTK ↗' : (fbIsIG ? 'Instagram' : 'Meta Page'));
+    const adlibLabel = adlibIsAdLibrary ? 'Ad Library' : (adlibIsIG ? 'Recent UGC ↗' : (adlibIsAmazon ? 'Amazon ↗' : 'More Evidence ↗'));
+    return `
+      <article class="card" data-search="${searchable}">
+        <div class="card-top">
+          <h3 class="card-title">${b.name}</h3>
+          <span class="status">${b.status}</span>
+        </div>
+        <p class="card-desc">${b.desc}</p>
+        ${b.quote ? `<div class="quote">${b.quote}</div>` : ''}
+        <div class="meta-row"><span class="tag ${c.cls}">${c.label}</span>${igBadge ? `<span class="tag town">${igBadge}</span>` : ''}</div>
+        <div class="links">
+          ${b.website ? `<a href="${siteUrl(b.website)}" target="_blank" rel="noopener">↗ ${b.website}</a>` : ''}
+          ${fb ? `<a href="${fb}" target="_blank" rel="noopener">${fbLabel}</a>` : ''}
+          ${adlib ? `<a href="${adlib}" target="_blank" rel="noopener">${adlibLabel}</a>` : ''}
+        </div>
+        <p class="notes"><b>Why it fits —</b> ${b.notes}</p>
+      </article>`;
+  }
+
+  function render(){
+    const q = searchEl.value.trim().toLowerCase();
+    groupsEl.innerHTML = '';
+    let shown = 0;
+
+    ORDER.forEach(catKey => {
+      if (activeCat !== 'all' && activeCat !== catKey) return;
+      const items = DATA.filter(b => b.category === catKey && (
+        !q || b.name.toLowerCase().includes(q) || (b.website||'').toLowerCase().includes(q) || b.desc.toLowerCase().includes(q) || (b.town||'').toLowerCase().includes(q)
+      ));
+      if (!items.length) return;
+      shown += items.length;
+      const cat = CATS[catKey];
+      const noun = catKey === 'local' ? 'place' : 'brand';
+      const section = document.createElement('section');
+      section.className = 'group';
+      section.innerHTML = `
+        <div class="group-head">
+          <h2>${cat.label}</h2>
+          <span class="group-count">${items.length} ${noun}${items.length === 1 ? '' : 's'}</span>
+          <span class="group-line"></span>
+        </div>
+        <div class="grid">${items.map(card).join('')}</div>`;
+      groupsEl.appendChild(section);
+    });
+
+    emptyEl.style.display = shown ? 'none' : 'block';
+  }
+
+  function buildFilters(){
+    const counts = { all: DATA.length };
+    ORDER.forEach(k => counts[k] = DATA.filter(b => b.category === k).length);
+    const btns = [{ key: 'all', label: 'All' }, ...ORDER.map(k => ({ key: k, label: CATS[k].label }))];
+    filtersEl.innerHTML = btns.map(b =>
+      `<button class="chip${b.key === activeCat ? ' active' : ''}" data-cat="${b.key}">${b.label} <span style="opacity:.55">${counts[b.key]}</span></button>`
+    ).join('');
+    filtersEl.querySelectorAll('.chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        activeCat = btn.dataset.cat;
+        filtersEl.querySelectorAll('.chip').forEach(c => c.classList.toggle('active', c === btn));
+        render();
+      });
+    });
+  }
+
+  searchEl.addEventListener('input', render);
+  buildFilters();
+  render();
+</script>
+
+</body>
+</html>
