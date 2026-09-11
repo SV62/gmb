@@ -6,7 +6,7 @@ they're set up for it. Tell us your niche, we send back a human-verified
 list: brand name, niche, location, why it's worth pitching, and a LinkedIn
 contact.
 
-**Live site (once DNS is configured):** [getmebrands.com](https://getmebrands.com)
+**Live site:** [getmebrands.com](https://getmebrands.com)
 
 ## Status
 
